@@ -1,0 +1,285 @@
+selector{ property : value; }
+
+body{
+
+	background-color: lightgray;
+
+}
+
+.heading1{
+
+	color:rgba(0,0,0,0.2);
+	text-decoration: overline;
+	text-align: right;
+
+}
+
+.heading2{
+
+	color:#00ff0a;
+	text-decoration: underline;
+	text-align: center;
+
+}
+
+.heading3{
+
+	color: red;
+	text-decoration: line-through;
+
+}
+
+.heading4{
+
+	color: blue;
+	text-indent: 100px;
+
+}
+
+.heading5{
+
+	color: violet;
+	text-indent: 500px;
+
+}
+
+.heading6{
+
+	font-size: 50px;
+	border: 10px dashed brown;
+
+}
+
+span{
+
+	border: 10px dotted green;
+	font-size: 50px;
+
+}
+
+.box1{
+
+	background-color: red;
+	height :300px;
+	width: 300px;
+	margin-bottom: 50px;
+	margin-top: 50px;
+	margin-left: 50px;
+	border: 10px black solid;
+	outline: 10px green solid;
+
+}
+
+.box2{
+
+	background-color: blue;
+	color: white;
+	height:300px;
+	width: 300px;
+	padding-left: 25px;
+	padding-top: 25px;
+	box-sizing: border-box;
+	box-shadow: 20px 10px 5px 10px red;
+
+
+}
+
+.box3{
+
+	background-color: green;
+	height: 500px;
+	width: 500px;
+	margin: 30px 30px 30px 30px;
+	box-shadow: -5px 5px 10px 10px #5d4f4f;
+
+}
+
+.box3:hover{
+
+	transform: skew(30deg);
+	transition-duration: 2s;
+
+}
+
+
+.box4{
+
+	height: 400px;
+	background: linear-gradient(to right, red, yellow, blue);
+
+}
+
+.box4:hover{
+
+	transform: scale(1.2);
+
+}
+
+
+.box5{
+
+	height: 400px;
+	background: radial-gradient(black, white, black, white, black, white, black, white, black, white, black, white);
+	transform: translate(10px, 20px);
+
+}
+
+.box5:hover{
+
+	transform: translate(50px, 50px);
+	transition-duration: 3s;
+
+}
+
+
+.box6{
+
+	background-color: purple;
+	height: 200px;
+	width: 200px;
+
+}
+
+.box6:hover{
+
+	transform: rotate(40deg);
+	transition-duration: 5s;
+
+}
+
+
+.div1{
+
+	background-color: black;
+	height: 500px;
+	margin: auto;
+	color: white;
+	overflow: scroll;
+
+}
+
+.para1{
+
+	text-transform: uppercase;
+	line-height: 30px;
+	word-spacing: 5px;
+	font-weight: lighter;
+
+}
+
+.para2{
+
+	text-transform: capitalize;
+	letter-spacing: 5px;
+	font-weight: bold;
+	font-family: 'Macondo Swash Caps', cursive;
+	border-left: 10px solid blue;
+
+}
+
+.para3{
+
+	direction: rtl;
+	font-family: 'Gloria Hallelujah', cursive;
+	font-style: italic;
+	border: 10px ridge green;
+
+}
+
+.para4{
+
+	border: 10px;
+	border-style: double;
+	border-color: red;
+	border-radius: 10%;
+
+}
+
+.para5{
+
+	position: relative;
+	top: 50px;
+
+}
+
+.para6{
+
+	position: relative;
+	bottom: 50px;
+
+}
+
+.para7{
+
+	position: absolute;
+	positon ko fixed bhi kar sakte han
+
+}
+
+.para8{
+
+	
+
+}
+
+.para9{
+
+	color: red;
+
+}
+
+.para10{
+
+	border: groove 3px purple ;
+
+}
+
+.a1{
+
+	color: red;
+
+}
+
+.img1{
+
+	background-image: url(thor.jpg);
+	height: 1000px;
+	background-position: center;
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+
+}
+
+.img2{
+
+	background-image: url(cap.jpg);
+	height: 500px;
+	background-position: center;
+	background-size: contain;
+	background-repeat: no-repeat;
+
+}
+
+.flexbox{
+
+	background-color: red;
+	height: 300px;
+	width: 1000px;
+	display: flex;
+	margin: auto;
+	flex-direction: row;
+
+}
+
+.child{
+
+	background-color: blue;
+	height: 150px;
+	width: 200px;
+	border: 5px solid black;
+	color: white;
+	text-align: center;
+	margin: auto;
+
+}
