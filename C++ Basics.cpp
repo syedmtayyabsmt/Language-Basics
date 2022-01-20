@@ -229,6 +229,62 @@ int main(){
 
 }
 
+// Ali Birthday Program With New cin.ignore function
+
+#include <iostream>
+using namespace std;
+
+int main(){
+
+    int savings;
+    string birthday;
+
+    cout << "How Much Savings Do You Have ? "<< endl;
+    cin >> savings;
+    cin.ignore(); /* If We Have To Use Getline After cin We Have To Give cin.ignore Command First
+                    Otherwise The Getline Function Will Not Work */
+    
+    cout << "What Is Ali's Birthday ? "<< endl;
+    getline (cin, birthday);
+
+    if (savings > 100 && savings < 500)
+    {
+
+        cout << "Go With Ahmed";
+    
+    }
+
+    else if (savings > 500)
+    {
+        cout << "Go With Ali"<< endl;
+
+        if (birthday == "25 Feb" || birthday == "25 feb" || birthday == "25 FEB" ||
+            birthday == "25 February" || birthday == "25 february" || birthday == "25 FEBRUARY")
+        {
+
+            cout << "Happy Birthday Ali";
+    
+        }
+        
+        else
+        {
+
+            cout << "Today's Party Is From Your Side";
+        
+        }
+
+    }
+
+    else
+    {
+
+        cout << "Stay At Home You Poor MF";
+    
+    }
+    
+
+}
+
 // Some Useful String Functions
 
 #include <iostream> // .Length Is Used For Determining Length Of String
@@ -584,4 +640,3 @@ int main(){
 }
 
 //
-
