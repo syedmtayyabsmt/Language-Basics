@@ -508,6 +508,29 @@ int main(){
 
 }
 
+//
+
+#include <iostream>
+using namespace std;
+
+int main(){
+
+    int i;
+    int counter = 0;
+
+    cout << "How Many Repetition ? " << endl;
+    cin >> i;
+
+    while (counter != i)
+    {
+
+        cout << "My Name Is Tayyab" << endl;
+        counter++;
+
+    }
+
+}
+
 // For Loop
 
 #include <iostream> // For Loop Is Used To Execute A Command For Limited Time
@@ -517,10 +540,86 @@ int main(){
 
     for (int i = 10 ; i > 0 ; i--)
     {
+
         cout << i << endl;
+  
     }
     
     cout << "Happy New Year";
+
+}
+
+//
+
+#include <iostream>
+using namespace std;
+
+int main(){
+
+    int count;
+
+    cout << "How Many Repetition ? " << endl;
+    cin >> count;
+
+    for (int i = 0; i != count; i++)
+    {
+
+        cout << "Hello Tayyab" << endl;
+
+    }
+
+}
+
+//
+
+#include <iostream>
+using namespace std;
+
+int main(){
+
+    for (int i = 0; i <= 50; i++)
+    {
+        if (i % 2 == 0)
+        {
+            
+            continue;
+        
+        }
+
+        cout << i << endl;
+        
+    }
+
+}
+
+//
+
+#include <iostream>
+using namespace std;
+
+int main(){
+
+    int a, b;
+
+    cout << "Enter First Number " << endl;
+    cin >> a;
+    
+    cout << "Enter Second Number " << endl;
+    cin >> b;
+
+    for (int i = a; i <= b; i++)
+    {
+        
+        if (i % 2 != 0)
+        {
+
+            continue;
+        
+        }
+        
+        cout << i << endl;
+
+    }
 
 }
 
@@ -635,6 +734,62 @@ int main(){
 
     cout << endl;
         
+    }
+
+}
+
+// A Basic Calculator
+
+#include <iostream>
+using namespace std;
+
+int main(){
+
+    float num1, num2;
+    char maths_operator;
+
+    cout << "Enter Your First Number " << endl;
+    cin >> num1;
+    cout << "Enter Your Second Number " << endl;
+    cin >> num2;
+
+    float sum = num1 + num2, sub = num1 - num2, mul = num1 * num2, div = num1 / num2;
+    
+    cout << "Enter The Maths Operator (+)(-)(*)(/) " << endl;
+    cin >> maths_operator;
+
+    while (maths_operator != '+' && maths_operator != '-' &&
+            maths_operator != '*' && maths_operator != '/' )
+    {
+
+        cout << "Enter The Valid Operator " << endl;
+        cin >> maths_operator;
+    
+    }
+    
+
+    switch (maths_operator) // Switch Is A Alternative Way For If Ifelse
+    {
+
+    case '+':
+        cout << sum;
+        break;
+
+    case '-':
+        cout << sub;
+        break;
+    
+    case '*':
+        cout << mul;
+        break;
+
+    case '/':
+        cout << div;
+        break;
+
+    default:
+        break;
+    
     }
 
 }
