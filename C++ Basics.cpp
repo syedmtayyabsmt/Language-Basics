@@ -630,31 +630,109 @@ using namespace std;
 
 int main(){
 
+    int rows, column;
     char symbol;
-    int width;
-    int height;
 
-    cout << "Write Symbol: ";
+    cout << "Enter Rows " << endl;
+    cin >> rows;
+    cout << "Enter Columns " << endl;
+    cin >> column;
+    cout << "Enter The Symbol " << endl;
     cin >> symbol;
 
-    cout << "How Many Times In Width: ";
-    cin >> width;
+    cout << "---------------" << endl;
 
-    cout << "How Many Times In Height: ";
-    cin >> height;
-
-    for (int i = 0; i < height; i++)
+    for (int i = 0; i < rows; i++)
     {
-    
-        for (int i = 0 ; i < width ; i++)
+
+        for (int j = 0; j < column; j++)
         {
 
             cout << symbol;
         
         }
-
+        
         cout << endl;
+    
+    }
 
+}
+
+//
+
+#include <iostream>
+using namespace std;
+
+int main(){
+
+    int rows, column;
+    char symbol;
+
+    cout << "Enter Rows " << endl;
+    cin >> rows;
+    cout << "Enter Columns " << endl;
+    cin >> column;
+    cout << "Enter The Symbol " << endl;
+    cin >> symbol;
+
+    cout << "---------------" << endl;
+
+    for (int i = 0; i <= rows; i++)
+    {
+
+        for (int j = 0; j <= column; j++)
+        {
+
+            if (i == 0 || i == rows || j == 0 || j == column)
+            {
+
+                cout << symbol;
+            
+            }
+
+            else
+            {
+
+                cout << " ";
+
+            }
+        
+        }
+        
+        cout << endl;
+    
+    }
+
+}
+
+//
+
+#include <iostream> // Nested Loop Is A Loop Inside A Loop
+using namespace std;
+
+int main(){
+
+    int rows, column;
+    int counter = 0;
+    char symbol;
+
+    cout << "Enter Rows " << endl;
+    cin >> rows;
+
+    cout << "---------------" << endl;
+
+    for (int i = 1; i <= rows; i++)
+    {
+
+        for (int j = 1; j <= rows + 1 - i; j++)
+        {
+
+            cout << j;
+        
+        }
+        
+        cout << endl;
+    
     }
 
 }
