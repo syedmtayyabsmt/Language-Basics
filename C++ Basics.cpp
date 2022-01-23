@@ -110,72 +110,6 @@ int main(){
     
 }
 
-// Taking Input From (cin)
-
-#include <iostream>
-using namespace std;
-
-int main(){
-
-    int num1, num2;
-
-    cout << "Number 1 \n";
-    cin >> num1; // (cin) Used For Taking Input Of Only Single Word
-
-    cout << "Number 2 \n";
-    cin >> num2;
-
-    cout << "The Sum Is = " << num1+num2;
-
-}
-
-// Float, int, char, string, bool & Math Operators
-
-#include <iostream>
-using namespace std;
-
-int main(){
-
-    float a = 4, b = 5; // For Decimal Point Number
-    
-    cout << "The Total Is: " << a+b << endl;
-    cout << "The Total Is: " << a-b << endl;
-    cout << "The Total Is: " << a*b <<endl;
-    cout << "The Total Is: " << a/b << "\n" << endl; // If We Divide 5 By 2 The Answer Will Come 2
-
-    cout << "The Total Is: " << 5/2.0 << "\n" << endl; // If We Divide 5 By 2.0 The Answer Will Come 2.5
-
-    int c = 4, d = 5; // For Whole Number
-
-    cout << "The Total Is: " << c+d << endl;
-    cout << "The Total Is: " << c-d << endl;
-    cout << "The Total Is: " << c*d << endl;
-    cout << "The Total Is: " << c/d << "\n" << endl;
-
-    char x = 'T'; // For Single Character With Single Quotes
-    cout << x << "\n" << endl;
-
-    string y = "Tayyab"; // For Multiple Characters With Double Quotes
-    cout << y << "\n" << endl;
-
-    bool z = true; // Used As True Or False Statement
-    cout << z << endl;
-
-}
-
-// Some Scape Sequences (\)
-
-#include <iostream>
-using namespace std;
-
-int main(){
-
-    cout << "\"My Name Is Tayyab\"" << endl; // Will Add Quotes
-    cout << "\tMy \tName \tIs \tTayyab" << endl; // Tab
-    cout << "\nMy Name Is Tayyab\n" << endl; // Next Line
-
-}
-
 // A Basic Shopping Program With (getline) (if else) (|| OR) (&& AND) (While)
 
 #include <iostream>
@@ -282,6 +216,134 @@ int main(){
     
     }
     
+
+}
+
+// A Basic Calculator
+
+#include <iostream>
+using namespace std;
+
+int main(){
+
+    float num1, num2;
+    char maths_operator;
+
+    cout << "Enter Your First Number " << endl;
+    cin >> num1;
+    cout << "Enter Your Second Number " << endl;
+    cin >> num2;
+
+    float sum = num1 + num2, sub = num1 - num2, mul = num1 * num2, div = num1 / num2;
+    
+    cout << "Enter The Maths Operator (+)(-)(*)(/) " << endl;
+    cin >> maths_operator;
+
+    while (maths_operator != '+' && maths_operator != '-' &&
+            maths_operator != '*' && maths_operator != '/' )
+    {
+
+        cout << "Enter The Valid Operator " << endl;
+        cin >> maths_operator;
+    
+    }
+    
+
+    switch (maths_operator) // Switch Is A Alternative Way For If Ifelse
+    {
+
+    case '+':
+        cout << sum;
+        break;
+
+    case '-':
+        cout << sub;
+        break;
+    
+    case '*':
+        cout << mul;
+        break;
+
+    case '/':
+        cout << div;
+        break;
+
+    default:
+        break;
+    
+    }
+
+}
+
+/*-----------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------*/
+
+// Taking Input From (cin) & Output From (cout)
+
+#include <iostream>
+using namespace std;
+
+int main(){
+
+    int num1, num2;
+
+    cout << "Number 1 \n";
+    cin >> num1; // (cin) Used For Taking Input Of Only Single Word
+
+    cout << "Number 2 \n";
+    cin >> num2;
+
+    cout << "The Sum Is = " << num1+num2;
+
+}
+
+// Float, int, char, string, bool & Math Operators
+
+#include <iostream>
+using namespace std;
+
+int main(){
+
+    float a = 4, b = 5; // For Decimal Point Number
+    
+    cout << "The Total Is: " << a+b << endl;
+    cout << "The Total Is: " << a-b << endl;
+    cout << "The Total Is: " << a*b <<endl;
+    cout << "The Total Is: " << a/b << "\n" << endl; // If We Divide 5 By 2 The Answer Will Come 2
+
+    cout << "The Total Is: " << 5/2.0 << "\n" << endl; // If We Divide 5 By 2.0 The Answer Will Come 2.5
+
+    int c = 4, d = 5; // For Whole Number
+
+    cout << "The Total Is: " << c+d << endl;
+    cout << "The Total Is: " << c-d << endl;
+    cout << "The Total Is: " << c*d << endl;
+    cout << "The Total Is: " << c/d << "\n" << endl;
+
+    char x = 'T'; // For Single Character With Single Quotes
+    cout << x << "\n" << endl;
+
+    string y = "Tayyab"; // For Multiple Characters With Double Quotes
+    cout << y << "\n" << endl;
+
+    bool z = true; // Used As True Or False Statement
+    cout << z << endl;
+
+}
+
+// Some Scape Sequences (\)
+
+#include <iostream>
+using namespace std;
+
+int main(){
+
+    cout << "\"My Name Is Tayyab\"" << endl; // Will Add Quotes
+    cout << "\tMy \tName \tIs \tTayyab" << endl; // Tab
+    cout << "\nMy Name Is Tayyab\n" << endl; // Next Line
 
 }
 
@@ -419,6 +481,22 @@ int main(){
     cin >> character;
 
     cout << "The Character " << character << " Is At " << name.find(character) << endl;
+
+}
+
+// Ternary Operator (?) 
+
+#include <iostream> // (?) Checks If Statement Is True Or False And Gives Output Accordingly.
+using namespace std;
+
+int main(){
+
+    int marks;
+
+    cout << "Enter Your Marks " << endl;
+    cin >> marks;
+
+    marks >= 40 ? cout << "You Are Passed" : cout << "You Are Failed";
 
 }
 
@@ -707,7 +785,7 @@ int main(){
 
 //
 
-#include <iostream> // Nested Loop Is A Loop Inside A Loop
+#include <iostream>
 using namespace std;
 
 int main(){
@@ -816,60 +894,36 @@ int main(){
 
 }
 
-// A Basic Calculator
+//
 
 #include <iostream>
 using namespace std;
 
 int main(){
 
-    float num1, num2;
-    char maths_operator;
+    int marks[2][5] = {
 
-    cout << "Enter Your First Number " << endl;
-    cin >> num1;
-    cout << "Enter Your Second Number " << endl;
-    cin >> num2;
+        {1, 2, 3, 4, 5},
+        {25, 54, 82, 95, 75}
+                                  
+    };
 
-    float sum = num1 + num2, sub = num1 - num2, mul = num1 * num2, div = num1 / num2;
-    
-    cout << "Enter The Maths Operator (+)(-)(*)(/) " << endl;
-    cin >> maths_operator;
 
-    while (maths_operator != '+' && maths_operator != '-' &&
-            maths_operator != '*' && maths_operator != '/' )
+    for (int i = 0; i < 5; i++)
     {
 
-        cout << "Enter The Valid Operator " << endl;
-        cin >> maths_operator;
-    
+        for (int j = 0; j == 0; j++)
+        {
+            
+            for (int k = 1; k == 1 ; k++)
+            {
+
+                cout<< "The " << marks[j][i] << "st Students's Marks Are " << marks[k][i] << endl;
+           
+            }
+            
+        }
+            
     }
     
-
-    switch (maths_operator) // Switch Is A Alternative Way For If Ifelse
-    {
-
-    case '+':
-        cout << sum;
-        break;
-
-    case '-':
-        cout << sub;
-        break;
-    
-    case '*':
-        cout << mul;
-        break;
-
-    case '/':
-        cout << div;
-        break;
-
-    default:
-        break;
-    
-    }
-
 }
-
-//
