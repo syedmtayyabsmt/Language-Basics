@@ -275,6 +275,34 @@ int main(){
 
 }
 
+// We Can Use Range In Switch For Bigger Ranges Of Values eg: 1 ... 99
+
+#include <iostream>
+using namespace std;
+
+
+int main(){
+
+    int input;
+
+    cout << "Enter The Number " << endl;
+    cin >> input;
+
+    switch (input)
+    {
+
+    case 1 ... 99:
+        cout << "Right ";
+        break;
+    
+    default:
+        cout << "Wrong";
+        break;
+   
+    }
+
+}
+
 /*-----------------------------------------------------------------------------------------------------
 -------------------------------------------------------------------------------------------------------
 -------------------------------------------------------------------------------------------------------
@@ -815,21 +843,68 @@ int main(){
 
 }
 
-// Pointers
+// Break Statement Is Used To Terminate A Loop
 
-#include <iostream> // A Pointer Is An Object That Stores A Memory Address Of Variable In Ram
-using namespace std; 
+#include <iostream>
+using namespace std;
+
 
 int main(){
 
-    string name;
-    int age;
+    for (int i = 0; i < 10; i++)
+    {
 
-    string* pName = &name;
-    int* pAge = &age;
+        if (i == 5)
+        {
+            break;
+        }
+        
+        cout << i << endl;
+    
+    }
+    
+}
 
-    cout << pName << endl;
-    cout << pAge << endl;
+// Continue Statement Is Used To Skip Iteration In A Loop
+
+#include <iostream>
+using namespace std;
+
+
+int main(){
+
+    for (int i = 0; i < 10; i++)
+    {
+
+        if (i == 5)
+        {
+            continue;
+        }
+        
+        cout << i << endl;
+    
+    }
+    
+}
+
+// Pointers
+
+#include <iostream> // A (*) Pointer Is Variable That Stores A Memory Address Of Variable In Ram
+using namespace std; // A (&) Is A Address Operator Which Stores The Memory Location Of Variable
+
+int main(){
+
+    string name = "Tayyab";
+    int age = 20;
+
+    string *namePtr = &name;
+    int *agePtr = &age;
+
+    cout << "My Name Is " << name << " And Its Memory Location Is " << namePtr << endl;
+    cout << "My Age Is " << age << " And Its Memory Location Is " << agePtr << endl;
+
+    cout << "My Name Is " << name << " And Its Memory Location Is " << *namePtr << endl;
+    cout << "My Age Is " << age << " And Its Memory Location Is " << *agePtr << endl;
 
 }
 
@@ -918,7 +993,7 @@ int main(){
             for (int k = 1; k == 1 ; k++)
             {
 
-                cout<< "The " << marks[j][i] << "st Students's Marks Are " << marks[k][i] << endl;
+                cout<< "The " << marks[j][i] << "rd Students's Marks Are " << marks[k][i] << endl;
            
             }
             
@@ -926,4 +1001,48 @@ int main(){
             
     }
     
+}
+
+// Function
+
+#include <iostream>
+using namespace std;
+
+void function()
+{
+    cout << "This Is Function" << endl;
+}
+
+int main(){
+
+    function();
+    
+}
+
+//
+
+#include <iostream>
+using namespace std;
+
+void sum_function(int a, int b)
+{
+    cout << "The Sum Is " << a + b << endl;
+}
+
+int main(){
+
+    sum_function(20, 30);
+    
+}
+
+// (Const) Is Used To Make Variables Constant Value So There Value Can Not Be Changed
+
+#include <iostream>
+using namespace std;
+
+
+int main(){
+
+    const int number = 5;
+
 }
