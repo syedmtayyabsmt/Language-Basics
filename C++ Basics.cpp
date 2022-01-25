@@ -910,7 +910,7 @@ int main(){
 
 // Array
 
-#include <iostream> // Array Is A Variable That Stores Multiple Values
+#include <iostream> // Array Is A Variable That Stores Multiple Values Of Same Data Type.
 using namespace std;
 
 int main(){
@@ -1003,9 +1003,95 @@ int main(){
     
 }
 
-// Function
+// Structure
+
+#include <iostream> // Structure Is A Variable That Stores Multiple Values Of Different Data Type.
+using namespace std; // Structure Is Defined Outside Of main Function 
+
+struct Data
+{
+    string name;
+    char sex;
+    int phone;
+};
+
+
+int main(){
+
+    Data student;
+
+    cout << "What Is Your Name ?"<< endl;
+    getline(cin, student.name);
+
+    cout << "What Is Your Sex ? Type (M) For Male & (F) For Female"<< endl;
+    cin >> student.sex;
+
+    cout << "What Is Your Phone Number ?"<< endl;
+    cin >> student.phone;
+
+    cout << "Your Personal Details Are As Follows" << endl << endl;
+    cout << "Your Name Is " << student.name << endl;
+    cout << "Your Sex Is " << student.sex << endl;
+    cout << "Your Cell Number Is " << student.phone << endl;
+
+}
+
+// Nested Structure Is A Structure Inside A Structure
 
 #include <iostream>
+using namespace std;
+
+struct Address{
+
+    string house_address;
+    int street_number;
+};
+
+struct Student{
+
+    string student_name;
+    char student_sex;
+    int student_phone_no;
+    Address student_address;
+};
+
+
+int main(){
+
+    Student information;
+
+    cout << "What Is Your Name ?" << endl;
+    getline(cin, information.student_name);
+
+    cout << "What Is Your Sex ?" << endl;
+    cin >> information.student_sex;
+
+    cout << "What Is Your Phone Number ?" << endl;
+    cin >> information.student_phone_no;
+    cin.ignore();
+    
+    cout << "What Is Your House Address ?" << endl;
+    getline(cin, information.student_address.house_address);
+
+    cout << "What Is Your Street Number ?" << endl;
+    cin >> information.student_address.street_number;
+
+    cout << "==========================================================================================="<< endl;
+
+
+    cout << "Your Name Is " << information.student_name << endl;
+    cout << "Your Sex Is " << information.student_sex << endl;
+    cout << "Your Phone Number Is " << information.student_phone_no << endl;
+    cout << "Your House Address Is " << information.student_address.house_address << " & You Street Number Is "
+    << information.student_address.street_number << endl;
+
+}
+
+
+
+// Function 
+
+#include <iostream> // A Function Is A Group Of Statements That Together Perform A Task
 using namespace std;
 
 void function()
@@ -1035,6 +1121,37 @@ int main(){
     
 }
 
+// Structure + Function
+
+#include <iostream>
+using namespace std;
+
+struct Data{
+
+    string name;
+    char sex;
+};
+
+void Pdata(Data input){
+
+    cout << "What Is Your Name ?" << endl;
+    getline(cin, input.name);
+    cout << "Your Name Is " << input.name << endl;
+
+    cout << "What Is Your Sex ?" << endl;
+    cin >> input.sex;
+    cout << "Your Sex Is " << input.sex << endl;
+
+}
+
+int main(){
+
+    Data student;
+
+    Pdata(student);
+
+}
+
 // (Const) Is Used To Make Variables Constant Value So There Value Can Not Be Changed
 
 #include <iostream>
@@ -1045,4 +1162,4 @@ int main(){
 
     const int number = 5;
 
-}
+}   
