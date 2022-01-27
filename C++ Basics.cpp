@@ -729,6 +729,59 @@ int main(){
 
 }
 
+//
+
+#include <iostream>
+using namespace std; // Factorial Loop Program
+
+int main(){
+
+    int number;
+    char x = 'x';
+    int ans = 1;
+
+    cout << "Enter Number For Its Factorial " << endl;
+    cin >> number;
+    cout << "-------------------------------" << endl;
+
+    for (int i = number; i >= 1 ; i--)
+    {
+
+        if (i > 1)
+        {
+            cout << i << x;
+        }
+        
+        else if (i == 1)
+        {
+            cout << i << " = " << ans;   
+        }
+
+        ans *= i;
+
+    }
+
+}
+
+//
+
+#include <iostream> // Range Based For Loop
+using namespace std;
+
+
+int main(){
+
+    int marks[] = {7, 38, 24, 87, 64, 93, 42, 7, 40, 17};
+
+    for ( int i : marks)
+    {
+
+        cout << i << endl;
+
+    }
+
+}
+
 // Nested Loop
 
 #include <iostream> // Nested Loop Is A Loop Inside A Loop
@@ -1119,6 +1172,29 @@ int main(){
 
     sum_function(20, 30);
     
+}
+
+//
+
+#include <iostream>
+using namespace std; /* Function Overloading Is A Function With Same Name And Instruction With Different
+                       Set Of Parameters */ 
+
+void function()
+{
+    cout << "Hello" << endl;
+}
+
+void function(string name)
+{
+    cout << "Hello " << name << endl;
+}
+
+int main(){
+
+    function();
+    function("Tayyab");
+
 }
 
 // Structure + Function
