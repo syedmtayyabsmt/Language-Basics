@@ -8,7 +8,7 @@ cell_no = input('What Is Your Cell No ? ')
 print('Thanks')
 
 color = input('What Is Your Favorite Color ? ')
-print('Oh Wow, ' + color + ' Is My Favorite Color Too.') # + Is Used To Join Two Strings
+print('Oh Wow, ' + color + ' Is My Favorite Color Too.')  # + Is Used To Join Two Strings
 
 birth_year = int(input('What Is Your Birth Year ? '))
 print('Your Age Is', 2021 - birth_year)
@@ -40,6 +40,7 @@ print(message)
 # DIFFERENT TYPE OF FUNCTIONS FOR VARIABLE & STRINGS
 
 # Range Function
+
 name = 'Syed Muhammad Tayyab Mehdi Jafri'
 print(name[5:13])
 ##
@@ -97,18 +98,18 @@ print(5 - 5)
 
 print(5 * 5)
 
-print(5 ** 5) # Exponent
+print(5 ** 5)  # Exponent
 
-print(5 / 5) # Return Decimal Value
+print(5 / 5)  # Return Decimal Value
 
-print(5 // 5) # Return Integer Value
+print(5 // 5)  # Return Integer Value
 ##
 x = 10
 y = 10
 print(y + x)
 ##
 x = 10
-print( 40 + x )
+print(40 + x)
 ##
 x = (2 + 3) * 10 - 3
 print(x)
@@ -120,7 +121,6 @@ print(f'Your Answer Is {num1 + num2}')
 num1 = float(input('Enter 1st Number '))
 num2 = float(input('Enter 2nd Number '))
 print(f'Your Answer Is {num1 + num2}')
-
 
 # "IF" "ELSE" "ELIF" STATEMENTS
 
@@ -176,7 +176,7 @@ gender = input('Are You Male, Female Or Transgender ? ')
 if gender.capitalize() == 'Male':
     print('You Got 10000 Rs')
 
-elif gender.capitalize() in ('Female','Transgender'):
+elif gender.capitalize() in ('Female', 'Transgender'):
     print('You Got 5000 Rs')
 
 else:
@@ -262,7 +262,7 @@ while i <= 5:
     print(i)
     i = i + 1
 
-#-----
+# -----
 s_no = 10
 guess_count = 0
 guess_limit = 5
@@ -279,10 +279,9 @@ while guess_count < guess_limit:
 else:
     print('You Lose')
 
-#-----
+# -----
 command = ''
 started = False
-
 
 while command != 'Quit':
     command = input('> ').capitalize()
@@ -312,9 +311,9 @@ while command != 'Quit':
         break
 
     else:
-        print('Sorry I Didnt Understand')
+        print("Sorry I Didn't Understand")
 
-#-----
+# -----
 ans_1 = 'Ali'
 ans_2 = 'Hazrat Ali'
 
@@ -326,9 +325,10 @@ if guess == ans_1 or ans_2:
 else:
     print('Wrong Answer')
 
-#-----
+# -----
 guess_count = 0
 guess_limit = 3
+ans = 'Ali'
 
 while guess_count < guess_limit:
     guess = input('Who Is First Imam ? ').capitalize()
@@ -350,63 +350,61 @@ for item in price:
 
 print(total)
 
-#-----
+# -----
 for x in range(5):
     for y in range(5):
         print(f'{x} , {y}')
-
 
 # LISTS & TYPES, TUPLES
 
 names = ['A', 'B', 'C', 'D', 'E']
 print(names[0])
 
-#-----
+# -----
 names = ['A', 'B', 'C', 'D', 'E']
 names.append('F')
 print(names)
 
-#-----
+# -----
 names = ['A', 'B', 'C', 'D', 'E']
 names.insert(1, 'F')
 print(names)
 
-#-----
+# -----
 names = ['A', 'B', 'C', 'D', 'E']
 names.remove('B')
 print(names)
 
-#-----
+# -----
 names = ['A', 'B', 'C', 'D', 'E']
 names.clear()
 print(names)
 
-#-----
+# -----
 names = ['A', 'B', 'C', 'D', 'E', 'C']
 print(names.count('C'))
 
-#-----
+# -----
 numbers = ['1', '2', '3', '4', '5']
 names = ['A', 'B', 'C', 'D', 'E']
 names.extend(numbers)
 print(names)
 
-#----- TUPLE IS SAME AS LIST JUST THE DIFFERENCE IS IT CANT BE CHANGES OR MODIFIED
+# ----- TUPLE IS SAME AS LIST JUST THE DIFFERENCE IS IT CAN'T BE CHANGES OR MODIFIED
 names = ('A', 'B', 'C', 'D', 'E')
 names[0] = ('F')
 print(names)
 
-#----
+# ----
 matrix = [
 
-    [1,2,3],
-    [4,5,6],
-    [7,8,9]
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
 
 ]
 
 print(matrix[0][1])
-
 
 # DICTIONARY
 
@@ -419,7 +417,7 @@ dictionary = {
 }
 print(dictionary.get('Name'))
 
-#-----
+# -----
 phone = input('>')
 
 dictionary = {
@@ -438,7 +436,7 @@ dictionary = {
 
 output = ''
 for char in phone:
-   output += dictionary.get(char, 'Error') + ' '
+    output += dictionary.get(char, 'Error') + ' '
 
 print(output)
 
@@ -448,16 +446,21 @@ print(output)
 def function():
     print('Hello')
 
+
 function()
 
-#-----
+
+# -----
 def function(name):
     print('Hello ' + name)
 
+
 function('Tayyab')
 
-#----- RETURN STATEMENT
+
+# ----- RETURN STATEMENT
 def cube(number):
-    return number*number*number
+    return number * number * number
+
 
 print(cube(3))
