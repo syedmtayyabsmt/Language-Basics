@@ -1,31 +1,5 @@
-# STRINGS
-
-print ('Hello World')
-print('o----')
-print(' ||||')
-print('#' * 10)
-
-
-# VARIABLE & PRINT STATEMENT
-
-name = 'John Smith'
-age = '20'
-is_new = True
-
-print(name)
-print(age)
-print(is_new)
-
-
-# FOR WHOLE NUMBER USE "INT"
-for_whole_number = int()
-
-
-# FOR WHOLE & DECIMAL NUMBER USE "FLOAT"
-for_whole_and_decimal_number = float()
-
-
-# INPUT EXAMPLES
+# TAKING INPUT
+# We Can Use Both Single And Double Quotes In Print Statement For Writing Strings
 
 name = input('What Is Your Name ? ')
 print('Hi ' + name)
@@ -34,69 +8,86 @@ cell_no = input('What Is Your Cell No ? ')
 print('Thanks')
 
 color = input('What Is Your Favorite Color ? ')
-print('Oh Wow, ' + color + ' Is My Favorite Color Too.')
+print('Oh Wow, ' + color + ' Is My Favorite Color Too.') # + Is Used To Join Two Strings
 
 birth_year = int(input('What Is Your Birth Year ? '))
 print('Your Age Is', 2021 - birth_year)
 
+# FOR WHOLE NUMBER USE "INT"
+
+for_whole_number = int()
+
+# FOR WHOLE & DECIMAL NUMBER USE "FLOAT"
+
+for_whole_and_decimal_number = float()
+
 # "f'" IS USED TO PUT VARIABLES BETWEEN STRINGS
+
 weight_kgs = int(input('What Is Your Weight In Kgs ? '))
 print(f'{weight_kgs * 1000} Grams')
-
+##
 weight_kgs = int(input('What Is Your Weight In Kgs ? '))
-print('Your Weight Is', weight_kgs * 1000, 'Grams')
-
+print(f'Your Weight Is {weight_kgs * 1000} Grams')
+##
 weight_grams = int(input('What Is Your Weight In Grams ? '))
 print(f'{weight_grams // 1000} Kgs')
-
-#-----
-name = 'Syed Muhammad Tayyab Mehdi Jafri'
-print(name[5:13])
-
-name = 'Syed Muhammad Tayyab Mehdi Jafri'
-print(name[5:])
-
-
-# "f'" IS USED TO PUT VARIABLES BETWEEN STRINGS
-
+##
 first = 'Syed M'
 last = 'Tayyab'
 message = f'{first} {last} Is A Good Developer'
 print(message)
 
+# DIFFERENT TYPE OF FUNCTIONS FOR VARIABLE & STRINGS
 
-# DIFFERENT TYPE OF .FUNCTIONS TO CHANGE VARIABLE
+# Range Function
+name = 'Syed Muhammad Tayyab Mehdi Jafri'
+print(name[5:13])
+##
+name = 'Syed Muhammad Tayyab Mehdi Jafri'
+print(name[5:])
+
+# Change Into Upper Case
 
 paragraph = 'My Name Is Tayyab'
 print(paragraph.upper())
 
+# Change Into Lower Case
+
 paragraph = 'My Name Is Tayyab'
 print(paragraph.lower())
 
-#TITLE CAPITALIZE EVERY WORD OF SENTENCE IN STRING
+# Capitalise Every Word Of Sentence
+
 paragraph = 'My Name Is Tayyab'
 print(paragraph.title())
 
-#CAPITALIZE ONLY CAPITALIZE FIRST WORD OF SENTENCE IN STRING
+# Capitalise Only First Letter Of Sentence
+
 paragraph = 'My Name Is Tayyab'
 print(paragraph.capitalize())
+
+# Find Location Of Word
 
 paragraph = 'My Name Is Tayyab'
 print(paragraph.find('Tayyab'))
 
+# Replace Word In String
+
 paragraph = 'My Name Is Tayyab'
 print(paragraph.replace('Tayyab', 'Ali'))
 
+# Same Like Find Function But Will Return Boolean Value
+
 paragraph = 'My Name Is Tayyab'
 print('Tayyab' in paragraph)
-
+##
 paragraph = 'My Name Is Tayyab'
 print('tayyab' in paragraph)
 
-# "LEN" IS USED FOR LENGTH
+# (len) Is Used For Length Of String
+
 name = 'Syed M Tayyab Mehdi Jafri'
 print(len(name))
-
 
 # MATHS FUNCTIONS
 
@@ -106,29 +97,26 @@ print(5 - 5)
 
 print(5 * 5)
 
-print(5 ** 5)
+print(5 ** 5) # Exponent
 
-print(5 / 5)
+print(5 / 5) # Return Decimal Value
 
-print(5 // 5)
-
+print(5 // 5) # Return Integer Value
+##
 x = 10
 y = 10
 print(y + x)
-
+##
 x = 10
 print( 40 + x )
-
+##
 x = (2 + 3) * 10 - 3
 print(x)
-
-
-# SIMPLE CALCULATOR WITH "INT" "F'" "INPUT" "FLOAT"
-
+##
 num1 = int(input('Enter 1st Number '))
 num2 = int(input('Enter 2nd Number '))
 print(f'Your Answer Is {num1 + num2}')
-
+##
 num1 = float(input('Enter 1st Number '))
 num2 = float(input('Enter 2nd Number '))
 print(f'Your Answer Is {num1 + num2}')
@@ -147,7 +135,8 @@ elif cold:
 else:
     print('Its A Lovely Day')
 
-#-----
+##
+
 price = 1000000
 good_credit = True
 
@@ -159,7 +148,6 @@ else:
 
 print(f'Down Payment {down_payment}')
 
-
 # "AND" "OR" STATEMENTS
 
 syed = True
@@ -167,20 +155,21 @@ high_income = True
 if syed and high_income:
     print('Eligible')
 
-#-----
+##
+
 syed = True
 high_income = False
 if syed or high_income:
     print('Eligible')
 
-#-----
+##
+
 syed = False
 high_income = False
 if syed or high_income:
     print('Eligible')
 
-
-# "IF" "ELSE" "ELIF" "AND" "OR" "IN" "NOT" EXAMPLES
+# (IF) (ELSE) (ELIF) (AND) (OR) (IN) (NOT) EXAMPLES
 
 gender = input('Are You Male, Female Or Transgender ? ')
 
@@ -193,7 +182,8 @@ elif gender.capitalize() in ('Female','Transgender'):
 else:
     print('You Got 1000 Rs')
 
-#-----
+##
+
 syed = True
 high_income = True
 
@@ -203,7 +193,8 @@ if syed and high_income:
 elif syed and not high_income:
     print('You Are Eligible')
 
-#-----
+##
+
 name = 'Tayyab'
 
 if len(name) < 3:
@@ -215,7 +206,8 @@ elif len(name) > 50:
 else:
     print('Name Looks Good')
 
-#-----
+##
+
 weight = float(input('Enter Your Weight: '))
 unit = input('Enter The Unit (Kgs) Or (Grams): ').title()
 
@@ -228,7 +220,8 @@ elif unit == 'Grams':
 else:
     print('Enter The Right Unit')
 
-#-----
+##
+
 water_available = True
 juice_available = True
 if water_available and juice_available:
@@ -243,7 +236,8 @@ elif juice_available:
 else:
     print('Dont Buy Anything')
 
-#-----
+##
+
 number_1 = 10
 number_2 = 20
 number_3 = 30
@@ -259,7 +253,6 @@ elif number_3 > number_2 and number_3 > number_1:
 
 else:
     print('They All Are Equal')
-
 
 # "WHILE" LOOP
 
