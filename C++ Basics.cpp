@@ -1119,6 +1119,8 @@ int main(){
     
 }
 
+// Object Oriented Programming
+
 // Structure
 
 #include <iostream> // Structure Is A Variable That Stores Multiple Values Of Different Data Type.
@@ -1203,21 +1205,19 @@ int main(){
 
 }
 
-
-
 // Function 
 
 #include <iostream> // A Function Is A Group Of Statements That Together Perform A Task
 using namespace std;
 
-void function()
+void Function()
 {
     cout << "This Is Function" << endl;
 }
 
 int main(){
 
-    function();
+    Function();
     
 }
 
@@ -1226,14 +1226,14 @@ int main(){
 #include <iostream>
 using namespace std;
 
-void sum_function(int a, int b)
+void Sum_function(int a, int b)
 {
     cout << "The Sum Is " << a + b << endl;
 }
 
 int main(){
 
-    sum_function(20, 30);
+    Sum_function(20, 30);
     
 }
 
@@ -1244,20 +1244,20 @@ int main(){
 #include <iostream>
 using namespace std;
 
-void function()
+void Function()
 {
     cout << "Hello" << endl;
 }
 
-void function(string name)
+void Function(string name)
 {
     cout << "Hello " << name << endl;
 }
 
 int main(){
 
-    function();
-    function("Tayyab");
+    Function();
+    Function("Tayyab");
 
 }
 
@@ -1274,12 +1274,8 @@ struct Data{
 
 void Pdata(Data input){
 
-    cout << "What Is Your Name ?" << endl;
-    getline(cin, input.name);
     cout << "Your Name Is " << input.name << endl;
 
-    cout << "What Is Your Sex ?" << endl;
-    cin >> input.sex;
     cout << "Your Sex Is " << input.sex << endl;
 
 }
@@ -1287,6 +1283,12 @@ void Pdata(Data input){
 int main(){
 
     Data student;
+
+    cout << "What Is Your Name ?" << endl;
+    getline(cin, student.name);
+
+    cout << "What Is Your Sex ?" << endl;
+    cin >> student.sex;
 
     Pdata(student);
 
@@ -1304,8 +1306,6 @@ int main(){
 
 }
 
-// Object Oriented Programming
-
 // Class
 
 /* A Class Is A User Defined Data Type That We Can Use In Our Programs And It Works As An Object Constructor
@@ -1316,7 +1316,7 @@ using namespace std;
 
 class FirstClass{
 public:
-    void human(string name){
+    void Human(string name){
             cout << "Hello I Am Human My Name Is " << name;
     }
 };
@@ -1325,7 +1325,7 @@ int main(){
 
     FirstClass tayyab;
 
-    tayyab.human("Tayyab Mehdi");
+    tayyab.Human("Tayyab Mehdi");
 
 }
 
@@ -1338,7 +1338,7 @@ class FirstClass{
 public:
     string name;
 
-    void human(){
+    void Human(){
             cout << "Hello I Am Human My Name Is " << name;
     }
 };
@@ -1348,7 +1348,7 @@ int main(){
     FirstClass tayyab;
 
     tayyab.name = "Tayyab";
-    tayyab.human();
+    tayyab.Human();
 
 }
 
@@ -1373,7 +1373,7 @@ int main(){
 // Constructor
 
 /* A Constructor In C++ Is A Special 'member Function' Having The Same Name As That Of Its Class Which Is Used To
-Initialize Some Valid Values To The Data Members Of An Object.it Is Executed Automatically Whenever An Object
+Initialize Some Valid Values To The Data Members Of An Object. It Is Executed Automatically Whenever An Object
 Of A Class Is Created */
 
 #include <iostream>
@@ -1402,7 +1402,7 @@ int main(){
     
 }
 
-// Pizza Order Program From Constructor Overlaoding
+// Pizza Order Program From Constructor Overloading
 
 #include <iostream>
 using namespace std;
@@ -1464,3 +1464,5 @@ int main(){
     second_burger.Order_Burger();
 
 }
+
+// 
