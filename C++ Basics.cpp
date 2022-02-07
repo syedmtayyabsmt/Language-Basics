@@ -466,6 +466,19 @@ int main(){
 
 //
 
+#include <iostream> // .Size Is Used To Check The Number Of Character In A String (Same As .Length Function)
+using namespace std;
+
+int main(){
+
+    string name = "Tayyab";
+
+    cout << name.size();
+
+}
+
+//
+
 #include <iostream> // .Empty Is Used To Determine If String Is Empty
 using namespace std;
 
@@ -1119,6 +1132,24 @@ int main(){
     
 }
 
+// Tuple
+// A Tuple Is An Object That Can Hold A Number Of Elements. The Elements Can Be Of Different Data Types.
+
+#include <iostream>
+#include <tuple>
+using namespace std;
+
+int main(){
+
+    tuple <int, float, char, string> example(5, 5.5, 'T', "Tayyab");
+
+    cout << get<0>(example) << endl;
+    cout << get<1>(example) << endl;
+    cout << get<2>(example) << endl;
+    cout << get<3>(example) << endl;
+
+}
+
 // Object Oriented Programming
 
 // Structure
@@ -1465,4 +1496,4 @@ int main(){
 
 }
 
-// 
+//
