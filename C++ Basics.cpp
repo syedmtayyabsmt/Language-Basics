@@ -110,6 +110,99 @@ int main(){
     
 }
 
+// VU Assignment 3
+
+#include <iostream>
+using namespace std;
+
+class Employee{
+private:
+    string empId;
+    string empName;
+    int joiningYear;
+    int joiningDate;
+    int joiningMonth;
+
+public:
+    Employee(){
+        
+        empId = "<<Empty>>";
+        empName = "<<Empty>>";
+        joiningYear = 0;
+        joiningDate = 0;
+        joiningMonth = 0;
+
+    }
+
+    Employee(string EId, string EName, int year, int date, int month){
+        
+        empId = EId;
+        empName = EName;
+        joiningYear = year;
+        joiningDate = date;
+        joiningMonth = month;
+
+    }
+
+    void SetValues(Employee *emp2){
+
+        empId = emp2 -> empId;
+        empName = emp2 -> empName;
+        joiningYear = emp2 -> joiningYear;
+        joiningDate = emp2 -> joiningDate;
+        joiningMonth = emp2 -> joiningMonth;
+
+    }
+
+    string GetId(){
+        return empId;
+    }
+
+    string GetName(){
+        return empName;
+    }
+
+    int GetYear(){
+        return joiningYear;
+    }
+
+    int GetDate(){
+        return joiningDate;
+    }
+
+    int GetMonth(){
+        return joiningMonth;
+    }
+
+    void Display(Employee emp){
+
+        cout << "Id: " << emp.GetId() << endl;
+        cout << "Name: " << emp.GetName() << endl;
+        cout << "Joining Year: " << emp.GetYear() << endl;
+        cout << "Joining Month: " << emp.GetDate() << endl;
+        cout << "Joining Date: " << emp.GetMonth() << endl;
+
+    }
+
+};
+
+int main(){
+
+    Employee em1;
+    Employee em2("(BC210202268)", "Syed Muhammad Tayyab", 2022, 02, 8);
+
+    cout << "Employee 1 Using Default Constructor: " << endl;
+    em1.Display(em1);
+
+    cout << "Employee 2 Using Parameterized Constructor: " << endl;
+    em2.Display(em2);
+
+    cout << "Employee 1 Having Employee 2 Copied Data Member Values" << endl;
+    em1.SetValues(&em2);
+    em1.Display(em1);
+
+}
+
 // A Basic Shopping Program With (getline) (if else) (|| OR) (&& AND) (While)
 
 #include <iostream>
@@ -1496,4 +1589,4 @@ int main(){
 
 }
 
-//
+// 
