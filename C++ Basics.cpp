@@ -203,6 +203,292 @@ int main(){
 
 }
 
+// VU Assignment 4
+
+#include<iostream>
+#include<string.h>
+
+using namespace std;
+
+class Book
+
+{
+	private:
+		
+		int book_id;
+		string author;
+		string title;
+		float price;
+	
+public:
+	
+	Book(){
+		
+		book_id = 0;
+		author = "";
+		title = "";
+		price = 0.0;
+		
+	}
+	
+//Setter BOOK ID
+
+	void set_BookID(){
+	
+	    int id;
+	    cout << "Book ID: ";
+	    cin >> id;
+	    this -> book_id = id;
+    
+	}
+	
+//Setter TITLE
+	
+	void set_Title(){
+		
+        string title;
+        cout << "Title: ";
+        getline(cin >> ws,title);
+        this-> title = title;
+	
+	}
+	
+//Setter AUTHOR
+	
+	void set_Author(){
+		
+	    string aut;
+	    cout <<"Author: ";
+	    getline(cin >> ws,aut);
+	    this-> author = aut;
+	
+	}
+	
+//Setter PRICE
+
+	void set_Price(){
+
+	    float p;
+	    cout <<"Price: ";
+	    cin >> p;
+	    this-> price = p;
+	
+	}
+	
+//Getter BOOK ID
+
+	int get_BookID(){
+
+    return book_id;
+
+	}
+	
+//Getter TITLE
+
+	string get_Title(){
+    
+	return title;
+	
+	}
+	
+//Getter AUTHOR
+
+	string get_Author(){
+		
+    return author;
+	
+	}
+	
+//Getter PRICE
+	
+	float get_price(){
+
+    return price;
+	
+	}
+	
+	
+	void add_NewBook(){
+	
+    	cout << "Enter book\'s Details........" << endl;
+	    cout << "\n..........." << endl;
+	    set_BookID();
+	    set_Title();
+	    set_Author();
+	    set_Price();
+	    cout <<"Book has been added"<< endl;
+	    
+	}
+	
+	void display_Books(){
+
+	    cout <<"...................." << endl;
+	    cout <<"Book ID: " << this -> get_BookID() << endl;
+	    cout <<"Title: "<< this -> get_Title() << endl;
+	    cout <<"Author: "<< this -> get_Author () << endl;
+	    cout <<"Price: "<< this -> get_price () << endl;
+	    cout <<"...................." << endl;
+    
+	}
+	
+	~Book(){
+		
+    cout <<"........................" << endl;
+    cout <<"Destructor Runs"<< endl;
+
+	}
+	
+};
+
+void show(){
+	
+    cout <<"\nEnter 1 to Add Books"<< endl;
+    cout <<"Enter 2 to Display Books\n";
+    cout <<"Enter 0 to Exit :\n";
+    cout <<"\n.................." << endl;
+    cout <<"\nEnter Choice: ";
+    
+	}
+	
+	
+int main(){
+	
+	int c, r = 0; char ch = 'y'; bool bb = true;
+	cout << "Welcome To E Library Prototype \n" << endl;
+	cout <<"......................................" << endl;
+	show();
+	
+	cin >> c;
+	
+	while(bb){
+		
+		if(c==1){
+		cout <<"\n........................." << endl;
+		cout <<"How many records you want to Enter? ";
+		cin >> r;
+		
+		}
+		
+	Book *s[r];
+	
+		switch(c){
+			
+		case 0:
+    		exit(1);
+    		break;
+    		
+    	case 1:
+    		for(int n = 0; n<r; n++){
+    			
+    			Book *b = new Book();
+				b -> add_NewBook();
+				s[n] = b;
+    			
+			
+			
+		cout << " \n................." << endl ;
+		cout << " Do you want to enter another record [ y / n ] ? " ;
+		cin >> ch ;
+		
+		
+		if(ch == 'y' || ch == 'Y'){
+			
+			if(n==r-1){
+				
+				cout << "you have reached the limit can not enter any other record " << endl;
+				cout << "\n.........................................................." << endl;
+				cout << "show main again (y / n)";
+				cin >> ch;
+				
+				if ( ch == 'y' || ch == 'Y' ){
+				
+					show ();
+					cin >> c;
+					
+					}
+					
+				else{
+					
+					bb = false;
+					break ;
+
+				}
+				
+			}
+			
+		}
+			
+		
+		
+		else{
+			
+			bb = false;
+			break;
+			
+		}
+		
+	}
+	
+break;
+
+	case 2:
+	
+	if(r == 0){
+		
+		cout << "................................." << endl;
+		cout << "no books to display" << endl;
+		cout << "................................" << endl;
+		show ();
+		cin >> c;
+		break;
+		
+	}
+	
+	cout << ".................." << endl;
+	cout << "Book \'s Details ...................." << endl;
+	
+		for (int x = 0; x < r ; x ++){
+			
+			s [ x ] -> display_Books();
+	
+		}
+		
+	cout << "\n................................." << endl;
+	cout << "show main again (y / n)";
+	cin >> ch;
+	
+	if(ch == 'y' || ch == 'Y'){
+		
+		show ();
+		cin >> c;
+	
+	}
+	
+	else{
+		
+		for (int x = 0; x < r; x ++){
+			
+			delete s[x] ;
+
+		}
+		
+	bb = false;
+		break;
+		
+	}
+	
+	break;
+		default:
+		
+			cout <<"Invalid number: ";
+			break;
+			
+	}
+	
+}
+
+}
+
 // A Basic Shopping Program With (getline) (if else) (|| OR) (&& AND) (While)
 
 #include <iostream>
@@ -459,7 +745,7 @@ int main(){
 
 }
 
-// ACSSII Code Checker
+// ACSII Code Checker
 
 #include <iostream>
 using namespace std;
