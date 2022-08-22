@@ -489,6 +489,131 @@ break;
 
 }
 
+// VU Assignment 5
+
+#include <iostream>
+#include <conio.h>
+using namespace std;
+
+class Person{
+
+    private:
+    int age;   
+    char gender;
+    string name;
+
+public:
+
+    Person(int age, char gender, string name){
+
+        this-> age = age;
+        this-> gender = gender;
+        this-> name = name;
+
+    }
+    
+    int getAge(){
+
+        return age;
+
+    }
+
+    char getGender(){
+
+        return gender;
+
+    }
+
+    string getName(){
+
+        return name;
+
+    }
+
+    virtual void display() = 0;
+
+};
+
+class Student: public Person{
+
+    private:
+
+        string studentId, degreeProgram;
+        float feePerSemester;
+
+    public:
+
+        Student(string studentId, string degreeProgram, float feePerSemester):Person(21, 'M', "Syed Muhammad Tayyab Mehdi Jafri"){
+
+            this-> studentId = studentId;
+            this-> degreeProgram = degreeProgram;
+            this-> feePerSemester = feePerSemester;
+
+        }
+
+        void display(){
+
+            cout <<"-------------------------------" << endl;
+            cout <<" ----- Student Record ----- " << endl;
+            cout <<"--------------------------------" << endl;
+            cout <<"Name: " << getName() << endl;
+            cout <<"Gender:  " << getGender() << endl;
+            cout <<"Age: " << getAge() << endl;
+            cout <<"Student Id: " << studentId << endl;
+            cout <<"Degree Program: " << degreeProgram << endl;
+            cout <<"Fee Per Semester: " << feePerSemester << endl;
+            cout <<"--------------------------------" << endl;
+
+        }
+
+};
+
+class Teacher: public Person{
+
+    private:
+
+        float salary;
+        int allocatedStudents;
+
+    public:
+
+        Teacher(float salary, int allocatedStudents):Person(40, 'M', "Shafiq-ur-Rehman"){
+
+            this -> salary = salary;
+            this -> allocatedStudents = allocatedStudents;
+
+        }
+
+        void display(){
+
+            cout <<" ----- Teacher Record ----- " << endl;
+            cout <<"--------------------------------" << endl;
+            cout <<"Name: " << getName() << endl;
+            cout <<"Gender:  " << getGender() << endl;
+            cout <<"Age: " << getAge() << endl;
+            cout <<"Number Of Allocated Students: " << allocatedStudents << endl;
+            cout <<"Salary: " << salary << endl;
+            cout <<"--------------------------------";
+
+        }
+
+};
+
+main(){
+
+    Student *Stu;
+    Teacher *Tea;
+
+    Stu = new Student("BC210202268", "BSCS", 14000);
+    Tea = new Teacher(100000 , 200);
+    Stu -> display();
+    Tea -> display();
+    getch();
+    
+    return 0;
+
+}
+
 // A Basic Shopping Program With (getline) (if else) (|| OR) (&& AND) (While)
 
 #include <iostream>
