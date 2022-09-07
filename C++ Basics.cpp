@@ -692,7 +692,7 @@ int main(){
     
     }
 
-    else if (savings > 500)
+    else if (savings >= 500)
     {
         cout << "Go With Ali"<< endl;
 
@@ -943,6 +943,51 @@ int main(){
 
     bool z = true; // Used As True Or False Statement
     cout << z << endl;
+
+}
+
+// Some Output Formatting
+
+#include <iostream>
+#include <iomanip> // Uses For (setw)
+using namespace std;
+
+main(){
+
+    int set_width = 10;
+
+    cout << setw(set_width) << "Tayyab " << setw(set_width) << "21 " << setw(set_width) << "Karachi" << endl; // (setw) set width in output
+    cout << setw(set_width) << "John " << setw(set_width) << "22 " << setw(set_width) << "Newyork" << endl;
+    cout << setw(set_width) << "Ali " << setw(set_width) << "23 " << setw(set_width) << "Lahore" << endl << endl;
+
+    cout << left; // The Data Is Right Alligned By Default, We Can Allign It Left By This.
+    cout << setw(set_width) << "Tayyab " << setw(set_width) << "21 " << setw(set_width) << "Karachi" << endl;
+    cout << setw(set_width) << "John " << setw(set_width) << "22 " << setw(set_width) << "Newyork" << endl;
+    cout << setw(set_width) << "Ali " << setw(set_width) << "23 " << setw(set_width) << "Lahore" << endl << endl;
+
+    cout << left;
+    cout << setfill('*'); // Fill The Empty Places WIth Character.
+    cout << setw(set_width) << "Tayyab " << setw(set_width) << "21 " << setw(set_width) << "Karachi" << endl;
+    cout << setw(set_width) << "John " << setw(set_width) << "22 " << setw(set_width) << "Newyork" << endl;
+    cout << setw(set_width) << "Ali " << setw(set_width) << "23 " << setw(set_width) << "Lahore" << endl << endl;
+
+}
+
+//
+
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+main(){
+
+    int num1 = 1;
+    int num2 = 2;
+
+    cout << (num2 == num1) << endl << endl;
+
+    cout << boolalpha; // Instead Of Output Of 0 and 1 Boolalpha Gives Output Of (true and false)
+    cout << (num2 == num1);
 
 }
 
@@ -1558,6 +1603,107 @@ int main(){
 
 }
 
+//
+
+#include <iostream>
+using namespace std;
+
+int main(){
+
+    int number1 = 10;
+    int *number1Ptr = &number1;
+
+    cout << number1Ptr << endl;
+    cout << *number1Ptr << endl;
+    
+}
+
+// Dynamic Memory Allocation Using (NEW) & (DELETE) In Pointers On 10:27 https://youtu.be/8jLOx1hD3_o
+
+//
+
+#include <iostream>
+using namespace std;
+
+int main(){
+
+    int *ptr1; // It Is Bad Practice To Leave Pointer Uninntialized First Then And Then Innitilize In Next Line, The Program Will Crash.
+    *ptr1 = 10;
+
+    cout << "PTR Is " << *ptr1 << endl;
+    cout << "Done" << endl;
+
+    
+}
+
+//
+
+#include <iostream>
+using namespace std;
+
+int main(){
+
+    int *ptr1 = nullptr; // It Is Bad Practice To Initialize (nullptr) First Then And Then Initilize In Next Line, The Program Will Crash.
+    *ptr1 = 10;
+
+    cout << "PTR Is " << *ptr1 << endl;
+    cout << "Done" << endl;
+
+    
+}
+
+//
+
+#include <iostream>
+using namespace std;
+
+int main(){
+
+    int *ptr1;
+    ptr1 = new int; // (new) Is Used To Allocate Memory Space In Heap
+    *ptr1 = 10;
+
+    cout << "Value Is " << *ptr1 << endl;
+
+    delete ptr1; // (delete) Is Used To Deallocate Memory Space In Heap
+    ptr1 = nullptr; // Always (delete) The Pointer And Set The Ptr To (nullptr) After Use In Dynamic Memory Allocation
+    
+
+}
+
+//
+
+#include <iostream>
+using namespace std;
+
+int main(){
+
+    int *ptr1 = new int; // We Can Initialize (New) Like This Too.
+    *ptr1 = 10;
+
+    cout << "Value = " << *ptr1 << endl;
+    cout << "Address = " << ptr1 << endl;
+
+    delete ptr1;
+    ptr1 = nullptr;
+
+
+    if (ptr1 == nullptr) // This Is For Checking If Ptr Is Null Or Not.
+    {
+
+        cout << "Ptr Is Null" << endl;
+    
+    }
+
+    else
+    {
+
+        cout << "Ptr Is Filled" << endl;
+    
+    }
+
+}
+
 // Array
 
 #include <iostream> // Array Is A Variable That Stores Multiple Values Of Same Data Type.
@@ -1585,6 +1731,25 @@ int main(){
         cout << cars[i] << endl;
     }
 
+}
+
+//
+
+#include <iostream>
+using namespace std;
+
+int main(){
+
+    string cars[] = {"Audi", "Lambo", "Mercedes", "Suzuki" };
+
+    size_t count = size(cars);
+
+    for (int i = 0; i < count; i++){
+
+        cout << " Value " << i << " = "<< cars[i] << endl;
+    
+    }
+    
 }
 
 // 2D Array
