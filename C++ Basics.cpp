@@ -769,6 +769,169 @@ int main(){
 
 }
 
+// VU Assignment 7
+
+#include <iostream>
+#include <time.h>
+#include <conio.h>
+#include <windows.h>
+
+using namespace std;
+
+int size, number, limit, sizet;
+
+class Node{
+
+private:
+    
+    int marks;
+    Node* nextNode;
+
+public:
+
+    void setMarks (int m){
+
+    marks = m;
+
+    }
+
+    int getMarks(){
+
+    return marks;
+    
+    }
+
+    void setNext (Node* a){
+
+    nextNode = a;
+    
+    }
+
+    Node* getNext(){
+
+    return nextNode;
+
+    }
+
+};
+
+class List{
+
+private:
+
+    Node* headNode;
+    Node* currentNode;
+    Node* lastCurrentNode;
+
+public:
+
+    List(){
+
+    headNode = NULL;
+    currentNode = NULL;
+    lastCurrentNode = NULL;
+    
+    }
+
+    int get (Node* ptr){
+
+    return ptr -> getMarks();
+    
+    }
+
+    void add(int n){
+
+    Node* newNode = new Node;
+    newNode ->setMarks (n);
+    newNode ->setNext (NULL);
+    
+    if(headNode == NULL){
+        
+        headNode = newNode;
+        currentNode = newNode;
+        lastCurrentNode = newNode;
+
+    }
+    
+    else{
+        
+        lastCurrentNode -> setNext (newNode);
+        lastCurrentNode = newNode;
+
+    }
+
+    cout<<n<<" Inserted into Linked List\n";
+
+    }
+
+    Node* next (Node* ptr){
+
+    return ptr -> getNext();
+
+    }
+
+    friend void traverse();
+    friend List addNode();
+
+}L;
+
+void traverse(){
+
+    int count=1, a=1;
+    Node* ptr = L.headNode;
+
+    while (ptr != NULL){
+
+        if(count > sizet-limit){
+
+        cout<<"Element "<<a++<<" "<<L.get(ptr)<<"\n";
+
+        }
+
+        ptr = L.next(ptr);
+        count++;
+
+    }
+
+}
+
+List addNode(){
+
+    srand(time(0));
+    number = rand ( ) %51 + 50;
+    L.add(number);
+
+}
+
+main(){
+    
+    srand(time(0));
+
+    sizet=rand()%6+15;
+
+    cout<<"Randomly generated List Size: "<<sizet<<"\n\n";
+    
+        for(int i=1;i<=sizet;i++){
+
+        Sleep(1000);
+        addNode();
+    
+    }
+    
+    cout<<"\nEnter Number of Last Elements you want to see: ";
+    
+    cin>>limit;
+
+    cout<<"\n\n";
+    
+    traverse();
+    
+    getch();
+
+    return 0;
+					
+}
+
 // A Basic Shopping Program With (getline) (if else) (|| OR) (&& AND) (While)
 
 #include <iostream>
