@@ -614,6 +614,161 @@ main(){
 
 }
 
+// VU Assignment 6
+
+#include <iostream>
+using namespace std;
+
+class Employee{
+
+private:
+
+    string Employee_Name;
+    int Employee_ID;
+    int Employee_Basic_Salary;
+    int Conveyance_Allowance;
+    int House_Rental_Allowance;
+    int Tax_Deduction;
+    int Employee_Gross_Salary;
+
+
+public:
+
+    //Setter
+
+    void Set_Employee_Name(string Name){
+
+        Employee_Name = Name;
+
+    }
+
+    void Set_Employee_ID(int Id){
+
+        Employee_ID = Id;
+
+    }
+
+    void Set_Employee_Basic_Salary(int Salary){
+
+        Employee_Basic_Salary = Salary;
+
+    }
+
+    // Getter
+
+    string Get_Employee_Name(){
+
+        return Employee_Name;
+
+    }
+
+    int Get_Employee_ID(){
+
+        return Employee_ID;
+
+    }
+
+    int Get_Employee_Basic_Salary(){
+
+        return Employee_Basic_Salary;
+
+    }
+
+    // Formula Functions
+
+    int Calculate_Conveyance_Allowance(){
+
+        Conveyance_Allowance = 35 * Employee_Basic_Salary / 100;
+
+        return Conveyance_Allowance;
+
+    }
+
+    int Calculate_House_Rental_Allowance(){
+
+        House_Rental_Allowance = 50 * Employee_Basic_Salary / 100;
+
+        return House_Rental_Allowance;
+
+    }
+
+    int Calculate_Tax(){
+
+        Tax_Deduction = 1.5 * Employee_Basic_Salary / 100;
+
+        return Tax_Deduction;
+
+    }
+
+    int Calculate_Net_Payable_Salary(){
+
+        Employee_Gross_Salary = Employee_Basic_Salary + Conveyance_Allowance + House_Rental_Allowance - Tax_Deduction;
+
+        return Employee_Gross_Salary;
+
+    }
+
+
+};
+
+int main(){
+
+    
+    int Id;
+    int Salary;
+    string Name;
+
+    Employee *emp_v = new Employee[3];
+
+
+    cout << "Assignment Is Submitted By (BC210202268)" << endl;
+
+    cout  << "---------------------------------------------" << endl;
+
+    for (size_t i = 0; i < 3; i++){
+
+        cout << "Enter Employee Id: ";
+        cin >> Id;
+        emp_v[i].Set_Employee_ID(Id);
+
+        cout << "Enter Employee Name: ";
+        cin >> Name;
+        emp_v[i].Set_Employee_Name(Name);
+
+        cout << "Enter Employee Salary: ";
+        cin >> Salary;
+        emp_v[i].Set_Employee_Basic_Salary(Salary);
+
+        cout << "-----------------------------------------------" << endl;
+
+    }
+
+    cout << "-----------------------------------------------" << endl;
+
+    for (size_t i = 0; i < 3; i++){
+
+        cout << "Employee Id: " << emp_v[i].Get_Employee_ID() << endl;
+
+        cout << "Employee Name: " << emp_v[i].Get_Employee_Name() << endl;
+
+        cout << "Employee Salary: " << emp_v[i].Get_Employee_Basic_Salary() << endl;
+
+        cout << "Employee House Rental Allowance: " << emp_v[i].Calculate_House_Rental_Allowance() << endl;
+
+        cout << "Employee Conveyance Allowance: " << emp_v[i].Calculate_Conveyance_Allowance() << endl;
+
+        cout << "Employee Tax Deduction: " << emp_v[i].Calculate_Tax() << endl;
+
+        cout << "Employee Gross Salary: " << emp_v[i].Calculate_Net_Payable_Salary() << endl;
+
+        cout << "-----------------------------------------------" << endl;
+
+    }
+    
+    delete []emp_v;
+
+}
+
 // A Basic Shopping Program With (getline) (if else) (|| OR) (&& AND) (While)
 
 #include <iostream>
@@ -1582,6 +1737,44 @@ int main(){
     
 }
 
+// Reference
+
+#include <iostream>
+using namespace std; // Reference (&) Aka Address Is Used To Give Reference To Variable
+
+int main(){
+
+    int number1 = 10;
+    double number2 = 1.5;
+
+    int &number1Ref = number1;
+    double &number2Ref = number2;
+
+    cout << number1 << endl;
+    cout << number2 << endl;
+
+    cout << "====================" << endl;
+
+    cout << number1Ref << endl;
+    cout << number2Ref << endl;
+
+    cout << "====================" << endl;
+
+    // Modify The Reference To Change The Main Value
+
+    number1Ref = 100;
+    number2Ref = 5.5;
+
+    cout << number1 << endl;
+    cout << number2 << endl;
+
+    cout << "====================" << endl;
+
+    cout << number1Ref << endl;
+    cout << number2Ref << endl;
+
+}
+
 // Pointers
 
 #include <iostream> // A (*) Pointer Is Variable That Stores A Memory Address Of Variable In Ram
@@ -2130,6 +2323,8 @@ public:
     string sauce;
     string extras; 
 
+    Burger() = default; //It Is Important To Set Default Constructor Otherwise There Will Be Problems
+
     Burger(string patty, string sauce, string extras){
 
         this -> patty = patty;
@@ -2176,10 +2371,84 @@ int main(){
 
     Burger first_burger("Chicken", "Ketchup", "Chips");
     Burger second_burger("Beef", "Mayo");
+    Burger third_burger;
 
     first_burger.Order_Burger();
     second_burger.Order_Burger();
 
 }
 
-// 
+// Setter And Getter
+
+#include <iostream>
+using namespace std;
+
+class Calculate{
+
+private:
+    int number1 = 10;
+    int number2 = 20;
+
+public:
+
+    //Constructors
+
+    Calculate() = default;
+
+    int Calculator(int Para_number1, int Para_number2){
+
+        number1 = Para_number1;
+        number2 = Para_number2;
+
+        int result = number1 + number2;
+
+        cout << "Total Is " << result << endl;
+
+    }
+
+    // Getter Is Used To Show PRIVATE Members And Variables In Main Public Section
+
+    int get_number1(){
+        cout << number1 << endl;
+    }
+
+    int get_number2(){
+    cout << number2 << endl;
+    }
+
+    // Setter Is Used To Change Private Members And Variables In Main Public Section
+
+    int set_number1(int setter_number1){
+
+        number1 = setter_number1;
+
+    }
+
+    int set_number2(int setter_number2){
+
+    number2 = setter_number2;
+
+    }
+
+};
+
+
+int main(){
+
+    Calculate Final_answer;
+
+    Final_answer.get_number1(); // number1 From Private Is 10, We Use Getter To Show Its Value In Main Funtion
+    Final_answer.get_number2(); // number2 From Private Is 20, We Use Getter To Show Its Value In Main Funtion
+
+    Final_answer.Calculator (50, 50);
+
+    Final_answer.set_number1(5); // We Changed number1 From 10 To 5 From Private Using Setter Function
+    Final_answer.set_number2(5); // We Changed number2 From 20 To 5 From Private Using Setter Function
+
+    Final_answer.get_number1(); // New Values With Help Of Setter And Getter
+    Final_answer.get_number2(); // New Values With Help Of Setter And Getter
+
+    Final_answer.Calculator (100, 100);
+
+
+}
