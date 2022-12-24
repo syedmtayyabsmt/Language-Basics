@@ -1041,7 +1041,7 @@ int main(){
 
 }
 
-// A Basic Calculator
+// A Basic Calculator 1
 
 #include <iostream>
 using namespace std;
@@ -1094,6 +1094,121 @@ int main(){
         break;
     
     }
+
+}
+
+// A Basic Calculator 2
+
+#include <iostream>
+using namespace std;
+
+int main(){
+
+float number1, number2;
+char operation, y_n;
+
+cout << "Enter First Number: ";
+cin >> number1;
+
+cout << "Enter Second Number: ";
+cin >> number2;
+
+cout << "What Operation Do You Want To Do On These Numbers (+ - * /) ? ";
+cin >> operation;
+
+cout << "---------------------------------------------------------------------" << endl;
+
+while (operation != '+' || operation != '-' || operation != '*' || operation != '/'){
+
+    if (operation == '+'){
+        
+        cout << "Your Answer Is " << number1 + number2 << endl;
+        break;
+
+    }
+
+    else if (operation == '-'){
+        
+        cout << "Your Answer Is " << number1 - number2 << endl;
+        break;
+
+    }
+
+    else if (operation == '*'){
+        
+        cout << "Your Answer Is " << number1 * number2 << endl;
+        break;
+
+    }
+
+    else if (operation == '/'){
+        
+        cout << "Your Answer Is " << number1 / number2 << endl;
+        break;
+
+    }
+
+    else
+
+        cout << "Invalid Operation Try Again !" << endl;
+        cin >> operation;
+
+}
+
+
+cout << "---------------------------------------------------------------------" << endl;
+
+
+cout << "Do You Want To Find Maximum ? Type (Y) For Yes And (N) For No. ";
+cin >> y_n;
+
+while (y_n != 'Y' || y_n != 'y' || y_n != 'N' || y_n != 'n'){
+
+
+    if (y_n == 'Y' || y_n == 'y'){
+
+        cout << "Type Your First Number: ";
+        cin >> number1;
+
+        cout << "Type Your Second Number: ";
+        cin >> number2;
+
+        if (number1 > number2){
+
+            cout << number1 << " Is Greater Than " << number2 << endl;
+
+        }
+
+        else if (number2 > number1){
+
+            cout << number2 << " Is Greater Than " << number1 << endl;
+
+        }
+
+        else
+
+            cout << "Both Are Equal" << endl;
+
+        break;
+
+    }
+
+
+    else if (y_n == 'N' || y_n == 'n'){
+
+        cout << "Thanks For Using Calculator BYE :)" << endl;
+
+        break;
+
+    }
+
+
+    else
+
+        cout << "Invaild Character, Try Again" << endl;
+        cin >> y_n;
+
+}
 
 }
 
@@ -1974,6 +2089,35 @@ int main(){
     
 }
 
+//
+
+#include <iostream>
+using namespace std;
+
+// Pointers Concept From https://youtu.be/C0RfUVNTkQ4
+
+int main(){
+
+    int a = 10;
+    int *p_a = &a;
+    int **p_p_a = &p_a;
+
+    cout << "Value Of 'a' From Its Variable Is " << a << endl;
+
+    cout << "Value Of 'a' From Its Pointer Is " << *p_a << endl;
+
+    cout << "Address Of 'a' From Its Variable Is " << &a << endl;
+
+    cout << "Address Of 'a' From Its Pointer Is " << p_a << endl;
+
+    cout << "Value Of 'a' From Pointer Pointing Towards 'Pointer Of a' Is " << **p_p_a << endl;
+
+    cout << "Address Of 'a' From Pointer Pointing Towards 'Pointer Of a' Is " << *p_p_a << endl;
+
+    cout << "Address Of 'Pointer Of a' Is " << p_p_a << endl;
+
+}
+
 // Dynamic Memory Allocation Using (NEW) & (DELETE) In Pointers On 10:27 https://youtu.be/8jLOx1hD3_o
 
 //
@@ -2106,6 +2250,25 @@ int main(){
     
     }
     
+}
+
+#include <iostream>
+using namespace std;
+
+int main(){
+
+    int array[10];
+    int j;
+
+    for (int j = 0; j < 10; j++){
+        
+        array[j] = j * 2;
+
+        cout << array[j] << endl;
+
+
+    }
+
 }
 
 // 2D Array
@@ -2613,5 +2776,122 @@ int main(){
 
     Final_answer.Calculator (100, 100);
 
+
+}
+
+// Inheritance
+
+/* Inheritance Is A Feature Or A Process In Which, New Classes Are Created From The Existing Classes.
+The New Class Created Is Called “Derived Class” Or “Child Class” And The Existing Class Is Known As The “Base Class” 
+Or “Parent Class */
+
+#include <iostream>
+using namespace std;
+
+class Person {  // Parent Class
+
+private:
+    
+    int age;
+    string name;
+
+public:
+
+    // Setter
+
+    void SetAge(int S_Age){
+
+        age = S_Age;
+
+    }
+
+    void SetName(string S_Name){
+
+        name = S_Name;
+
+    }
+
+    // Getter
+
+    void GetAge(){
+
+        cout << age << endl;
+
+    }
+
+    void GetName(){
+
+        cout << name << endl;
+
+    }
+
+};
+
+class Student : public Person{ // Child Class
+
+private:
+    
+    int roll_no;
+    string subject;
+
+public:
+
+    // Setter
+
+    void SetRoll_no(int R_no){
+
+        roll_no = R_no;
+
+    }
+
+    void SetSubject(string Subj){
+
+        subject = Subj;
+
+    }
+
+    // Getter
+
+    void GetRoll_no(){
+
+        cout << "Student Roll No Is " << roll_no << endl;
+
+    }
+
+    void GetSubject(){
+
+        cout << "Student Subject Is " << subject << endl;
+
+    }
+
+};
+
+
+int main(){
+
+    Person Person1;
+    Student Student1;
+
+    // Parent Class Person
+
+    Person1.SetAge(21);
+    Person1.SetName("Tayyab");
+
+    Person1.GetAge();
+    Person1.GetName();
+
+    cout << "-----------------------------------------" << endl;
+
+    // Child Class Student
+
+    Student1.SetAge(21);
+    Student1.SetName("Syed Muhammad Tayyab");
+    Student1.SetRoll_no(12345);
+    Student1.SetSubject("Maths");
+
+    Student1.GetAge();
+    Student1.GetName();
+    Student1.GetRoll_no();
+    Student1.GetSubject();
 
 }
