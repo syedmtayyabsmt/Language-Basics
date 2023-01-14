@@ -1915,6 +1915,57 @@ int main(){
 
 //
 
+#include <iostream>
+using namespace std;
+
+int main() {
+
+int count = 5;
+int total_int[count];
+int sum = 0;
+
+for (size_t i = 0; i < count; i++){
+
+    cout << "Write Number " << i + 1 << ": ";
+    cin >> total_int[i];
+
+    sum += total_int[i];
+    
+}
+
+cout << "======================================" << endl;
+
+cout << "The Total Sum Is " << sum << endl;
+cout << "The Average Is " << sum / count << endl;
+
+
+}
+
+//
+
+#include <iostream>
+using namespace std;
+
+int main() {
+
+int table_of;
+int count = 10;
+
+cout << "Which Number's Table Do You Want ?" << endl;
+cin >> table_of;
+
+cout << "The Table Of " << table_of << " Is " << endl;
+
+for (size_t i = 1; i <= count; i++){
+
+    cout << table_of << " X " << i << " = " << table_of * i << endl;
+
+}
+
+}
+
+//
+
 #include <iostream> // Range Based For Loop
 using namespace std;
 
@@ -2814,7 +2865,7 @@ public:
     }
 
     int get_number2(){
-    cout << number2 << endl;
+        cout << number2 << endl;
     }
 
     // Setter Is Used To Change Private Members And Variables In Main Public Section
@@ -3051,5 +3102,269 @@ number2.GetNum2();
 cout << "------------------------------------" << endl;
 
 FriendFunction(number1, number2);
+
+}
+
+
+// Data Structures
+
+// Stack
+
+#include <iostream>
+using namespace std;
+
+class Stack{
+
+private:
+
+    int top;
+    int array[5];
+
+public:
+
+    Stack(){
+
+        top = -1;
+        for (size_t i = 0; i < 5; i++){
+
+            array[i] = 0;
+        
+        }
+
+    }
+
+
+    bool IsEmpty(){
+
+        if (top == -1){
+
+            return true;
+
+        }
+
+        else
+
+            return false;
+        
+    }
+
+
+    bool IsFull(){
+
+        if (top == 4){
+
+            return true;
+
+        }
+
+        else
+
+            return false;
+
+    }
+
+
+    void Push(int push_value){
+
+        if(IsFull()){
+
+            cout << "Stack Overflow" << endl;
+ 
+        }
+
+        else{
+
+            top++;
+            array[top] = push_value;
+            cout << "You Sucessfully Pushed The Value " << push_value << " In The Stack" << endl;
+        }
+
+    }
+
+
+    int Pop(){
+
+        if(IsEmpty()){
+
+            cout << "Stack Underflow" << endl;
+            return 0;
+
+        }
+
+        else{
+
+            int PopValue = array[top];
+            array[top] = 0;
+            top--;
+            return PopValue;
+
+        }
+
+    }
+
+
+    int Count(){
+
+        return top+1;
+
+    }
+
+
+    int Peek(int peek_value){
+
+        if (IsEmpty()){
+        
+            cout << "The List Is Empty" << endl;
+
+        }
+
+        else
+
+            peek_value--;
+            return array[peek_value];
+        
+
+    }
+
+
+    void Change(int change_index, int change_value){
+
+        array[change_index] = change_value;
+
+        cout << "Value Changed At Location " << change_index << endl;
+
+    }
+
+
+    void Display(){
+
+        cout << "Values In Stack Are" << endl;
+
+        for (int i = 4; i >= 0; i--){
+
+            cout << array[i] << endl;
+        
+        }
+        
+
+    }
+
+
+};
+
+int main() {
+
+    Stack v1;
+    int option, position, value;
+
+    do{
+
+        cout << "\nWhat Operation Do You Want To Perform ? Select From Below" << endl;
+        cout << "(1) For Push()" << endl;
+        cout << "(2) For Pop()" << endl;
+        cout << "(3) For isEmpty()" << endl;
+        cout << "(4) For isFull()" << endl;
+        cout << "(5) For peek()" << endl;
+        cout << "(6) For count()" << endl;
+        cout << "(7) For change()" << endl;
+        cout << "(8) For display()" << endl;
+        cout << "(9) For Clear Screen" << endl;
+        cout << "(0) To Exit" << endl << endl;
+
+        cin >> option;
+
+        switch (option)
+        {
+        case 0:
+            
+            cout << "You Sucessfully Exited The Program" << endl;
+            break;
+
+        case 1:
+
+            cout << "Write The Value You Want To Push" << endl;
+            cin >> value;
+            v1.Push(value);
+            break;
+
+        case 2:
+
+            v1.Pop();
+            cout << "You Sucessfully Poped The Value In The Stack" << endl;
+            break;
+
+        case 3:
+
+            if(v1.IsEmpty()){
+
+                cout << "Stack Is Empty" << endl;
+
+            }
+
+            else
+
+                cout << "Stack Is Not Empty" << endl;
+
+            break;
+
+        case 4:
+
+            if(v1.IsFull()){
+
+                cout << "Stack Is Full" << endl;
+
+            }
+
+            else
+
+                cout << "Stack Is Not Full" << endl;
+
+            break;
+
+        case 5:
+
+            cout << "Write The Value You Want To Peak" << endl;
+
+            cin >> position;
+            cout << "The Value Is " << v1.Peek(position) << endl;
+            break;
+
+        case 6:
+
+            cout << "The Total Count Of Stack Is " << v1.Count() << endl;
+            break;
+
+        case 7:
+
+            cout << "Write Value You Want To Change" << endl;
+            cin >> value;
+
+            cout << "Write Poistion You Want To Change" << endl;
+            cin >> position;
+
+            v1.Change(position, value);
+
+            cout << "The New Value Is " << value << endl;
+            break;
+
+        case 8:
+
+            cout << "Here Are All The Values Of Stack" << endl;
+            v1.Display();
+            break;
+
+        case 9:
+
+            system("cls");
+            break;
+        
+        default:
+
+            cout << "Type The Option From 0 To 9" << endl;
+            break;
+        }
+
+    } while (option != 0);
+    
 
 }
