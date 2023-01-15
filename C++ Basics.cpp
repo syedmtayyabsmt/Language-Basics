@@ -3108,7 +3108,7 @@ FriendFunction(number1, number2);
 
 // Data Structures
 
-// Stack
+// Stack (Explaination From Google Docs)
 
 #include <iostream>
 using namespace std;
@@ -3125,7 +3125,7 @@ public:
     Stack(){
 
         top = -1;
-        for (size_t i = 0; i < 5; i++){
+        for (int i = 0; i < 5; i++){
 
             array[i] = 0;
         
@@ -3229,6 +3229,7 @@ public:
 
     void Change(int change_index, int change_value){
 
+        change_index--;
         array[change_index] = change_value;
 
         cout << "Value Changed At Location " << change_index << endl;
@@ -3251,6 +3252,7 @@ public:
 
 
 };
+
 
 int main() {
 
@@ -3366,5 +3368,281 @@ int main() {
 
     } while (option != 0);
     
+
+}
+
+
+// Queue (Explaination From Google Docs)
+
+#include <iostream>
+using namespace std;
+
+class Queue{
+
+private:
+
+    int array[5];
+    int front;
+    int back;
+
+public:
+
+    Queue(){
+
+        front = -1;
+        back = -1;
+        for (int i = 0; i < 5; i++){
+            
+            array[i] = 0;
+
+        }        
+
+    }
+
+    bool IsEmpty(){
+
+        if (front == -1 && back == -1){
+        
+            return true;
+
+        }
+
+        else{
+
+            return false;
+
+        }
+
+    }
+
+    bool IsFull(){
+
+        if(back == 4){
+
+            
+            return true;
+
+        }
+
+        else{
+
+            return false;
+            
+        }
+
+    }
+
+    void Enqueue(int enqueue_value){
+
+        if(IsFull()){
+
+            cout << "Queue Overflow" << endl;
+
+        }
+
+        else if (IsEmpty()){
+            
+            front = 0;
+            back = 0;
+            array[back] = enqueue_value;
+
+        }
+
+        else{
+
+            back++;
+            array[back] = enqueue_value;
+        
+        }
+
+    }
+
+    void Dequeue(){
+
+        if(IsEmpty()){
+
+            cout << "Queue Underflow" << endl;
+
+        }
+
+        else if (front == back){
+
+            array[front] = 0;
+            front = -1;
+            back =-1;
+
+        }
+        
+
+        else{
+
+            array[front] = 0;
+            front++;
+
+        }
+
+    }
+
+    void Count(){
+
+        cout << "The Total Values Are " << array[back]-1 << endl;
+
+    }
+
+    int Peek(int peek_value){
+
+        if(IsEmpty()){
+
+            cout << "Queue Is Empty" << endl;
+
+        }
+
+        else{
+
+            peek_value--;
+            return array[peek_value];
+
+        }
+
+    }
+
+    void Change(int change_index, int change_value){
+
+        change_index--;
+        array[change_index] = change_value;
+
+        cout << "Value Changed At Location " << change_index << endl;
+
+    }
+
+    int Display(){
+
+        for (int i = 0; i < 5; i++){
+        
+            cout << array[i] << endl;
+
+        }
+        
+    }
+
+};
+
+
+int main(){
+
+    Queue q1;
+    int option, value, position;
+
+    do{
+
+        cout << "\nWhat Operation Do You Want To Perform ? Select From Below" << endl;
+        cout << "(1) For Enqueue()" << endl;
+        cout << "(2) For Dequeue()" << endl;
+        cout << "(3) For isEmpty()" << endl;
+        cout << "(4) For isFull()" << endl;
+        cout << "(5) For peek()" << endl;
+        cout << "(6) For count()" << endl;
+        cout << "(7) For change()" << endl;
+        cout << "(8) For display()" << endl;
+        cout << "(9) For Clear Screen" << endl;
+        cout << "(0) To Exit" << endl << endl;
+
+        cin >> option;
+
+
+        switch (option)
+        {
+        case 0:
+            
+            cout << "You Sucessfully Exited The Program" << endl;
+            break;
+
+        case 1:
+            
+            cout << "Enter Value To Add In Queue" << endl;
+            cin >> value;
+            q1.Enqueue(value);
+            break;
+
+        case 2:
+            
+            cout << "You Sucessfully Dequeue The Value" << endl;
+            q1.Dequeue();
+            break;
+
+        case 3:
+            
+            if(q1.IsEmpty()){
+
+                cout << "Queue Is Empty" << endl;
+
+            }
+
+            else
+
+                cout << "Queue Is Not Empty" << endl;
+
+            break;
+
+        case 4:
+            
+        if(q1.IsFull()){
+
+                cout << "Queue Is Full" << endl;
+
+            }
+
+            else
+
+                cout << "Queue Is Not Full" << endl;
+
+            break;
+
+        case 5:
+            
+                cout << "Write The Value You Want To Peak" << endl;
+
+                cin >> position;
+                cout << "The Value At Position " << position << " Is " << q1.Peek(position);
+                break;
+
+        case 6:
+            
+            q1.Count();
+            break;
+
+        case 7:
+
+            cout << "Write Value You Want To Change" << endl;
+            cin >> value;
+
+            cout << "Write Poistion You Want To Change" << endl;
+            cin >> position;
+
+            q1.Change(position, value);
+
+            cout << "The New Value Is " << value << endl;
+            break;
+
+        case 8:
+            
+            cout << "Here Are All The Values Of Queue" << endl;
+            q1.Display();
+            break;
+
+        case 9:
+            
+            system("cls");
+            break;
+        
+        default:
+
+            cout << "Type The Option From 0 To 9" << endl;
+            break;
+        }
+        
+
+    } while (option != 0);
+
 
 }
