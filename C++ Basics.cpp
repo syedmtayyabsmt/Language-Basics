@@ -932,6 +932,683 @@ main(){
 					
 }
 
+// VU Assignment 8
+
+#include <iostream>
+#include <vector>
+using namespace std;
+
+
+class Item{
+
+private:
+
+    int itemNumber;
+    string itemName;
+    double itemPrice;
+
+public:
+
+    Item();
+    Item(int number, string name, double price){
+
+    itemNumber = number;
+    itemName = name;
+    itemPrice = price;
+    
+    }
+    
+    void setItemNumber(int number){
+        
+        itemNumber = number;
+        
+    }
+
+    void setItemName(string name){
+        
+        itemName = name;
+        
+    }
+
+    void setItemPrice(double price){
+        
+        itemPrice = price;
+        
+    }
+
+    int getItemNumber(){
+        
+        return itemNumber;
+        
+    }
+
+    string getItemName(){
+        
+        return itemName;
+        
+    }
+
+    double getItemPrice(){
+        
+        return itemPrice;
+        
+    }
+
+    void displayDetails(){
+
+        cout << "Item Number: " << itemNumber << endl;
+        cout << "Item Name: " << itemName << endl;
+        cout << "Item Price: " << itemPrice << endl;
+    
+    }
+
+
+};
+
+
+class DiscountedItem : public Item{
+
+private:
+
+    double discountPercentage;
+    double discountedPrice;
+
+public:
+    
+    DiscountedItem();
+    DiscountedItem(int number, string name, double price, double discount) : Item(number, name, price){
+
+        discountPercentage = discount;
+        discountedPrice = price - (price * discount / 100);
+    
+    }
+
+    void setDiscountPercentage(double discount){
+
+        discountPercentage = discount;
+        discountedPrice = getItemPrice() - (getItemPrice() * discount / 100);
+    
+    }
+
+    double getDiscountPercentage(){
+        
+        return discountPercentage;
+        
+    }
+
+    double getDiscountedPrice(){
+        
+        return discountedPrice;
+        
+    }
+
+    void displayDetails(){
+
+        Item::displayDetails();
+        cout << "Discount Percentage: " << discountPercentage << endl;
+        cout << "Discounted Price: " << discountedPrice << endl;
+    
+    }
+
+
+};
+
+
+int main(){
+
+
+    int numItems;
+    double totalPrice = 0, totalDiscount = 0;
+
+    cout << "How Many Items You Want To Enter: ";
+    cin >> numItems;
+
+    vector<DiscountedItem *> abc(numItems);
+
+    for (int i = 0; i < numItems; i++){
+    
+    int itemNumber;
+    string itemName;
+    double itemPrice;
+    double discountPercentage;
+    
+    cout << "Enter Details For Item " << i + 1 << ":" << endl;
+    
+    cout << "Enter Item Name: ";
+    cin >> itemName;
+    
+    cout << "Enter Item No: ";
+    cin >> itemNumber;
+    
+    cout << "Enter Item Price: ";
+    cin >> itemPrice;
+    
+    cout << "Enter Discount Percent ";
+    cin >> discountPercentage;
+    
+    if (discountPercentage > 0){
+    
+    abc[i] = new DiscountedItem(itemNumber, itemName, itemPrice, discountPercentage);
+    totalDiscount += (itemPrice * discountPercentage / 100);
+    
+    }
+    
+    totalPrice += abc[i]->getItemPrice();
+
+    cout<<"-------------------------"<<endl;
+    
+    }
+
+    cout << "Details Of All Items:" << endl;
+  
+    for (int i = 0; i < numItems; i++){
+
+    abc[i]->displayDetails();
+    cout<<"-------------------------"<<endl;
+    
+    }
+
+    cout<<"\n-------------------------"<<endl;
+    
+    cout<<"Total Price: " << totalPrice <<endl;
+    
+    cout<<"Total Discount: " << totalDiscount <<endl;
+    
+    cout<<"-------------------------"<<endl;
+    
+    return 0;
+
+}
+
+
+// VU Assignment 9
+
+#include <iostream>
+using namespace std;
+
+class TreeNode {
+
+    int data;
+
+    TreeNode *left, *right;
+
+public:
+
+    TreeNode(int data) {
+
+        this->data = data;
+
+        left = right = NULL;
+
+    }
+
+    void insert(int value) {
+
+        if (value < data) {
+
+            if (left == NULL) {
+
+                left = new TreeNode(value);
+
+            } else {
+
+                left->insert(value);
+
+            }
+
+        } else if (value > data) {
+
+            if (right == NULL) {
+
+                right = new TreeNode(value);
+
+            } else {
+
+                right->insert(value);
+
+            }
+
+        }
+
+    }
+
+    bool search(int value) {
+
+        if (data == value) {
+
+            cout << "Yes, " << value << " is found" << endl;
+
+            if (isLeaf()) {
+
+                cout << "Yes, it is a leaf node" << endl;
+
+            } else {
+
+                cout << "No, it is not a leaf node" << endl;
+
+            }
+
+
+
+            if (left != NULL) {
+
+                cout << "The left child of " << value << " is " << left->data << endl;
+
+            } else {
+
+                cout << "There is no left child for " << value << endl;
+
+            }
+
+
+
+            if (right != NULL) {
+
+                cout << "The right child of " << value << " is " << right->data << endl;
+
+            } else {
+
+                cout << "There is no right child for " << value << endl;
+
+            }
+
+
+
+            return true;
+
+        } else if (value < data) {
+
+            if (left != NULL) {
+
+                return left->search(value);
+
+            }
+
+        } else if (value > data) {
+
+            if (right != NULL) {
+
+                return right->search(value);
+
+            }
+
+        }
+
+        cout << "No, " << value << " is not found" << endl;
+
+        return false;
+
+    }
+
+    bool isLeaf() {
+
+        if (left == NULL && right == NULL) {
+
+            return true;
+
+        }
+
+        return false;
+
+    }
+
+    int internalNodes() {
+
+        int count = 0;
+
+        if (left != NULL) {
+
+            count += left->internalNodes();
+
+        }
+
+        if (right != NULL) {
+
+            count += right->internalNodes();
+
+        }
+
+        if (!isLeaf()) {
+
+            count++;
+
+        }
+
+        return count;
+
+    }
+
+    int externalNodes() {
+
+        int count = 0;
+
+        if (left != NULL) {
+
+            count += left->externalNodes();
+
+        }
+
+        if (right != NULL) {
+
+            count += right->externalNodes();
+
+        }
+
+        if (isLeaf()) {
+
+            count++;
+
+        }
+
+        return count;
+
+    }
+
+    int internalLinks() {
+
+        int count = 0;
+
+        if (left != NULL) {
+
+            count += left->internalLinks();
+
+            count++;
+
+        }
+
+        if (right != NULL) {
+
+            count += right->internalLinks();
+
+            count++;
+
+        }
+
+        return count;
+
+    }
+
+    int externalLinks() {
+
+        int count =0;
+
+if (left != NULL) {
+
+if (left->isLeaf()) {
+
+count++;
+
+}
+
+count += left->externalLinks();
+
+}
+
+if (right != NULL) {
+
+if (right->isLeaf()) {
+
+count++;
+
+}
+
+count += right->externalLinks();
+
+}
+
+return count;
+
+}
+
+int findParent(int value, int parent) {
+
+    if (data == value) {
+
+        cout << "The parent of " << value << " is " << parent << endl;
+
+        return parent;
+
+    } else if (value < data) {
+
+        if (left != NULL) {
+
+            return left->findParent(value, data);
+
+        }
+
+    } else if (value > data) {
+
+        if (right != NULL) {
+
+            return right->findParent(value, data);
+
+        }
+
+    }
+
+    return 0;
+
+}
+
+int findSibling(int value, int parent) {
+
+    if (data == value) {
+
+        if (parent != 0) {
+
+            TreeNode *temp = new TreeNode(parent);
+
+            if (temp->left != NULL && temp->left->data == value) {
+
+                cout << "The sibling of " << value << " is " << temp->right->data << endl;
+
+            } else if (temp->right != NULL && temp->right->data == value) {
+
+                cout << "The sibling of " << value << " is " << temp->left->data << endl;
+
+            } else {
+
+                cout << "No sibling found" << endl;
+
+            }
+
+        } else {
+
+            cout << "No sibling found" << endl;
+
+        }
+
+    } else if (value < data) {
+
+        if (left != NULL) {
+
+            return left->findSibling(value, data);
+
+        }
+
+    } else if (value > data) {
+
+        if (right != NULL) {
+
+            return right->findSibling(value, data);
+
+        }
+
+    }
+
+    return 0;
+
+}
+
+void isPrimeEvenodd(int value) {
+
+    if (data == value) {
+
+        if (isPrime(value)) {
+
+            cout << value << " is a prime number" << endl;
+
+        } else {
+
+            cout << value << " is not a prime number" << endl;
+
+        }
+
+        if (value % 2 == 0) {
+
+            cout << value << " is an Even number" << endl;
+
+        } else {
+
+            cout << value << " is an Odd number" << endl;
+
+        }
+
+    } else if (value < data) {
+
+        if (left != NULL) {
+
+            left->isPrimeEvenodd(value);
+
+        }
+
+    } else if (value > data) {
+
+        if (right != NULL) {
+
+            right->isPrimeEvenodd(value);
+
+        }
+
+    }
+
+}
+
+bool isPrime(int n) {
+
+    if (n <= 1) {
+
+        return false;
+
+    }
+
+    for (int i = 2; i < n; i++) {
+
+        if (n % i == 0) {
+
+            return false;
+
+        }
+
+    }
+
+    return true;
+
+}
+
+};
+
+
+int main() {
+
+	int data[] = {10, 8, 12, 4, 11, 15, 6, 17, 7, 9, 16};
+
+int choice, value;
+
+TreeNode *root = new TreeNode(data[0]);
+
+for (int i = 1; i < 11; i++) {
+
+root->insert(data[i]);
+
+}
+
+cout << "Data" << endl << "____________" << endl;
+
+cout << "Marks: ";
+
+for (int i = 0; i < 11; i++) {
+
+    cout << data[i] << ",";
+
+}
+
+cout << endl << endl;
+
+
+
+while (true) {
+
+    cout << "Enter your choice" << endl;
+
+    cout << "Entrer 1 to create BST" << endl;
+
+    cout << "Entrer 2 to search the node" << endl;
+
+    cout << "Entrer 3 to find the no. of internal nodes" << endl;
+
+    cout << "Entrer 4 to find the no. of external nodes" << endl;
+
+    cout << "Entrer 5 to find the no. of internal links" << endl;
+
+    cout << "Entrer 6 to find the no. of external links" << endl;
+
+    cout << "Entrer 0 to terminate the program" << endl;
+
+    cin >> choice;
+
+
+    if (choice == 1) {
+
+        cout << endl << "BST is being created..." << endl;
+
+        cout << "Done" << endl;
+
+    } else if (choice == 2) {
+
+        cout << "Enter the number you want to search in BST" << endl;
+
+        cin >> value;
+
+        if (root->search(value)) {
+
+            root->findParent(value, 0);
+
+            root->findSibling(value, 0);
+
+            root->isPrimeEvenodd(value);
+
+        }
+
+    } else if (choice == 3) {
+
+        cout << "Total internal nodes = " << root->internalNodes() << endl;
+
+    } else if (choice == 4) {
+
+        cout << "Total external  nodes = " << root->externalNodes() << endl;
+
+    } else if (choice == 5) {
+
+        cout << "Total internal links = " << root->internalLinks() << endl;
+
+    } else if (choice == 6) {
+
+        cout << "Total external links = " << root->externalLinks() << endl;
+
+    } else if (choice == 0) {
+
+        break;
+
+    }
+
+}
+
+return 0;
+
+}
+
+
 // A Basic Shopping Program With (getline) (if else) (|| OR) (&& AND) (While)
 
 #include <iostream>
@@ -3483,9 +4160,9 @@ public:
 
     }
 
-    void Count(){
+    int Count(){
 
-        cout << "The Total Values Are " << array[back]-1 << endl;
+        return (back - front + 1);
 
     }
 
@@ -3519,7 +4196,7 @@ public:
 
         for (int i = 0; i < 5; i++){
         
-            cout << array[i] << endl;
+            cout << array[i] << "  ";
 
         }
         
@@ -3566,7 +4243,7 @@ int main(){
 
         case 2:
             
-            cout << "You Sucessfully Dequeue The Value" << endl;
+            cout << "You Sucessfully Dequeue The Value" <<  endl;
             q1.Dequeue();
             break;
 
@@ -3608,7 +4285,7 @@ int main(){
 
         case 6:
             
-            q1.Count();
+            cout << "The Total Values In Queue Are " << q1.Count() << endl;
             break;
 
         case 7:
@@ -3644,5 +4321,8 @@ int main(){
 
     } while (option != 0);
 
-
 }
+
+
+// Circular Queue (Explaination From Google Docs)
+
