@@ -1,5 +1,10 @@
 # ########################################################################################################################################
+# ########################################################################################################################################
+# ########################################################################################################################################
+# ########################################################################################################################################
+# ########################################################################################################################################
 # Check Uppercase, Lowercase & Numbers In String
+
 def string_and_number_calculator(string):
     checker_dict = {'Lower_case': 0, 'Upper_case': 0, 'Number': 0}
 
@@ -25,9 +30,101 @@ i_string = input('Write Text To Check :: ')
 
 string_and_number_calculator(i_string)
 
-# ############################################################
-# 
 
+# ############################################################
+# ############################################################
+# Net Salary Calculator
+
+basic_salary = int(input('Enter Your Basic Salary: '))
+print('''---------------------------
+---------------------------''')
+
+# Allowance Calculation
+medical_allowance = (50 * basic_salary) / 100
+fix_uni_allowance = 1000
+convence_allowance = (25 * basic_salary) / 100
+gross_salary = basic_salary + medical_allowance + fix_uni_allowance + convence_allowance
+
+# Income Tax Condition
+if (gross_salary > 50000):
+    
+    income_tax = (4*gross_salary)/100
+    net_salary = gross_salary - income_tax
+
+    print(f'Your Gross Salary Is {gross_salary}')
+    print(f'Your 4 % Income Tax Is {income_tax}')
+    print(f'Your Net Salary Is {net_salary}')
+    print('''---------------------------
+---------------------------''')
+
+elif (gross_salary <= 50000):
+    
+    income_tax = (2*gross_salary)/100
+    net_salary = gross_salary - income_tax
+
+    print(f'Your Gross Salary Is {gross_salary}')
+    print(f'Your 2 % Income Tax Is {income_tax}')
+    print(f'Your Net Salary Is {net_salary}')
+    print('''---------------------------
+---------------------------''')
+
+    
+# ############################################################
+# ############################################################
+# Grade Calculator
+
+print('Grade Calculation System')
+print('''---------------------------
+---------------------------''')
+
+# Input
+maths = int(input('Enter Marks For Maths: '))
+chemistry = int(input('Enter Marks For Chemistry: '))
+physics = int(input('Enter Marks For Physics: '))
+
+# Overall Grade
+overall_grade = ((maths + physics + chemistry) * 100) / 300
+
+if(overall_grade >= 80):
+    print(f'You Got A+ Grade And Your % Is {overall_grade}')
+elif(overall_grade >= 70):
+    print(f'You Got A Grade And Your % Is {overall_grade}')
+elif(overall_grade >= 60):
+    print(f'You Got B Grade And Your % Is {overall_grade}')
+elif(overall_grade >= 50):
+    print(f'You Got C Grade And Your % Is {overall_grade}')
+elif(overall_grade < 50):
+    print(f'You Got F Grade And Your % Is {overall_grade}')
+print('---------------------------')
+
+
+# ############################################################
+# ############################################################
+# Prime Number Calculator
+
+value = int(input("Enter A Maximum Number: "))
+print('''--------------------------
+--------------------------''')
+prime_nums = []
+
+for i in range(2, value):
+    for j in range(2, i):
+        if (i % j) == 0:
+            break
+    else:
+        prime_nums.append(i)
+
+print(f'Prime Numbers Under {value} Are: {prime_nums}')
+
+
+# ############################################################
+# ############################################################
+#
+
+# ########################################################################################################################################
+# ########################################################################################################################################
+# ########################################################################################################################################
+# ########################################################################################################################################
 # ########################################################################################################################################
 
 # TAKING INPUT
