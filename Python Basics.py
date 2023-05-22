@@ -119,7 +119,97 @@ print(f'Prime Numbers Under {value} Are: {prime_nums}')
 
 # ############################################################
 # ############################################################
-#
+# QR Code Reader
+
+import cv2 as cv
+import time
+import winsound as win
+
+total = 0
+camera = cv.VideoCapture(0)
+
+while True:
+    success, img = camera.read()
+    qrd = cv.QRCodeDetector()
+    a, b, c = qrd.detectAndDecode(img)
+
+    if a != '':
+        if a == 'Vegetables':
+            time.sleep(1)
+            win.Beep(1000, 500)
+            total += 800
+            print('800 For Vegetables')
+            print(f'Your Total Bill Is {total}')
+
+        elif a == 'Laptop':
+            time.sleep(1)
+            win.Beep(1000, 500)
+            total += 50000
+            print('50000 For Laptop')
+            print(f'Your Total Bill Is {total}')
+
+        elif a == 'Dry Fruits':
+            time.sleep(1)
+            win.Beep(1000, 500)
+            total += 4000
+            print(f'4000 For Fruits')
+            print(f'Your Total Bill Is {total}')
+
+        elif a == 'Cooking Oil':
+            time.sleep(1)
+            win.Beep(1000, 500)
+            total += 500
+            print(f'500 For Cooking Oil')
+            print(f'Your Total Bill Is {total}')
+
+        continue
+
+    cv.imshow('Preview', img)
+    if cv.waitKey(1) == 27:
+        break
+        
+        
+# ############################################################
+# ############################################################
+# Name And Circle On Camera Screen
+
+import cv2 as cv
+
+camera = cv.VideoCapture(0)
+
+while True:
+    success, img = camera.read()
+    cv.putText(img, 'Syed M Tayyab', (100, 50), cv.FONT_ITALIC, 2, (150, 100, 50), 5)
+
+    for i in range(230, 390, 40):
+        cv.circle(img, (i, 100), 30, (100, 100, 100), 5)
+
+    cv.imshow('Preview', img)
+    if cv.waitKey(1) == 27:
+        break
+        
+
+# ############################################################
+# ############################################################
+# Find 2nd Largest Number
+
+list = []
+
+for i in range(5):
+    list_num = int(input('Enter 5 Numbers To Add In List: '))
+    list.append(list_num)
+
+print('''========================
+========================''')
+
+list.sort()
+print(list)
+print(f'The 2nd Highest Number In The list Is {list[-2]}')
+
+
+# ############################################################
+# ############################################################
+# 
 
 # ########################################################################################################################################
 # ########################################################################################################################################
