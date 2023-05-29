@@ -294,7 +294,6 @@ Game Over
 
 from cvzone.HandTrackingModule import HandDetector as Hd
 import cv2 as cv
-import random as rand
 
 camera = cv.VideoCapture(0)
 detector = Hd(detectionCon=0.8, maxHands=2)
