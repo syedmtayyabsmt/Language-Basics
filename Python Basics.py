@@ -367,12 +367,18 @@ while user_score != 5 and comp_score != 5:
 
         if sum_of_fingers == 2:
             user_input = 'SCISSORS'
+            cv.putText(img, user_input, (300, 100), cv.FONT_HERSHEY_PLAIN, 3, (0, 0, 255), 3)
+            time.sleep(1)
         
         elif sum_of_fingers == 5:
             user_input = 'PAPER'
+            cv.putText(img, user_input, (300, 100), cv.FONT_HERSHEY_PLAIN, 3, (0, 0, 255), 3)
+            time.sleep(1)
         
         elif sum_of_fingers == 0:
             user_input = 'ROCK'
+            cv.putText(img, user_input, (300, 100), cv.FONT_HERSHEY_PLAIN, 3, (0, 0, 255), 3)
+            time.sleep(1)
         
         elif sum_of_fingers == 4:
             print("Four Fingers Detected (Program Ended)")
