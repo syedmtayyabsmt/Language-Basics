@@ -344,19 +344,20 @@ comp_input = ['ROCK', 'PAPER', 'SCISSORS']
 comp_choice = rand.choice(comp_input)
 user_score, comp_score = 0, 0
 
-while user_score != 3 and comp_score != 3:
+while user_score != 5 and comp_score != 5:
     success, img = camera.read()
     hands, img = detector.findHands(img)
 
     if hands:
         
+        time.sleep(1)
         hand1 = hands[0]
         lmList1 = hand1["lmList"]
         fingers1 = detector.fingersUp(hand1)
 
         s1 = str(sum(fingers1))
         sum_of_fingers = sum(fingers1)
-        cv.putText(img, s1, (25, 50), cv.FONT_HERSHEY_PLAIN, 3, (0, 0, 255), 3)
+        cv.putText(img, s1, (15, 50), cv.FONT_HERSHEY_PLAIN, 3, (0, 0, 255), 3)
         position = lmList1[8]
 
         if position[0] >= 550 and position[0] <= 600 and position[1] >= 0 and position[1] <= 40:
@@ -372,6 +373,11 @@ while user_score != 3 and comp_score != 3:
         
         elif sum_of_fingers == 0:
             user_input = 'ROCK'
+        
+        elif sum_of_fingers == 4:
+            print("Four Fingers Detected (Program Ended)")
+            win.Beep(1000, 1500)
+            break
 
         if user_input in comp_input:
 
@@ -394,8 +400,7 @@ while user_score != 3 and comp_score != 3:
             win.Beep(1000, 500)
             time.sleep(1)
 
-    cv.putText(img, 'Exit Here --> ', (320, 50), cv.FONT_ITALIC, 1, (255, 255, 255), 4)
-    cv.circle(img, (600, 40), 40, (255, 255, 255), 2)
+    cv.putText(img, 'Exit Game By Showing 4 Fingers ', (55, 40), cv.FONT_ITALIC, 1, (255, 255, 255), 4)
 
     cv.imshow("Game", img)
 
