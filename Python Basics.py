@@ -71,21 +71,30 @@ elif (gross_salary <= 50000):
  
 # ############################################################
 # ############################################################
-# Net Salary Calculator With Dictionary
+# Net Salary Calculator With Dictionary And Exception Handling
 
 employee_data = []
 
 while exit != 'Yes':
-    
-    id = int(input("Enter Employee's Id No: "))
-    basic_salary = int(input('Input Employee Basic Salary: '))
+
+    try:   
+        id = int(input("Enter Employee's Id No: "))
+    except ValueError:
+        print('(ERROR) "Enter Number Only"')
+        continue
+
+    try:   
+        basic_salary = int(input('Input Employee Basic Salary: '))
+    except ValueError:
+        print('(ERROR) "Enter Number Only"')
+        continue
 
     medical_allowance = (50 * basic_salary) / 100
     convence_allowance = (25 * basic_salary) / 100
     gross_salary = basic_salary + medical_allowance + convence_allowance
 
     employee_data.append({'Employee Id': id,
-                        'Basic Salary': basic_salary,
+                         'Basic Salary': basic_salary,
                          'Medical Allowance': medical_allowance,
                          'Convence Allowance': convence_allowance,
                          'Gross Salary': gross_salary})
@@ -102,12 +111,14 @@ while exit != 'Yes':
             print('Enter The Right Value')
             exit = input('Do You Want To Exit ? (Enter "Yes" To Exit And "No" To Keep Going): ').capitalize()
 
-print('\n=========================')
+print('\n=====================')
 print("Data Of All Employees")
-print('=========================\n')
+print('=====================\n')
 
 for i in employee_data:
-    print(f'''Employee Id Is {i['Employee Id']}
+
+    print(f'''
+Employee Id Is {i['Employee Id']}
 Basic Salary Is {i['Basic Salary']}
 Medical Alllowance Is {i['Medical Allowance']}
 Convence Allowance Is {i['Convence Allowance']}
