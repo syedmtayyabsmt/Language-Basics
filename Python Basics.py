@@ -120,7 +120,7 @@ while exit != 'Y':
         break
     
     elif exit == 'N':
-        win.Beep(1000,300)
+        win.Beep(1000,500)
         continue
     
     else:
@@ -130,10 +130,15 @@ while exit != 'Y':
             exit = input('Do You Want To Exit ? (Enter "Yes" To Exit And "No" To Keep Going): ').capitalize()
             
             if exit == 'Y':
+                win.Beep(1000,1000)
                 print('Program Ended')
 
             elif exit == 'N':
+                win.Beep(1000,500)
                 continue
+
+            else:
+                win.Beep(1000,100)
 
 
 print('\n=====================')
