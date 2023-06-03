@@ -556,7 +556,7 @@ print(message)
 
 # DIFFERENT TYPE OF FUNCTIONS FOR VARIABLE & STRINGS
 
-# Range Function
+# Range
 
 name = 'Syed Muhammad Tayyab Mehdi Jafri'
 print(name[5:13])
@@ -1090,6 +1090,59 @@ def function(name):
 
 
 function('Tayyab')
+
+
+#-----
+def Net_Salary_Function(name,basic_salary):
+    
+    employee_data = []
+
+    medical_allowance = (50 * basic_salary) / 100
+    convence_allowance = (25 * basic_salary) / 100
+    gross_salary = basic_salary + medical_allowance + convence_allowance
+
+    if gross_salary > 50000:
+        tax_value = 4
+        income_tax = (tax_value*gross_salary)/100
+        net_salary = gross_salary - income_tax
+
+    elif gross_salary <= 50000:
+        tax_value = 2
+        income_tax = (tax_value*gross_salary)/100
+        net_salary = gross_salary - income_tax
+
+
+    employee_data.append({'Employee Name': name,
+                        'Basic Salary': basic_salary,
+                        'Medical Allowance': medical_allowance,
+                        'Convence Allowance': convence_allowance,
+                        'Gross Salary': gross_salary,
+                        'Income Tax': income_tax,
+                        'Tax Value': tax_value,
+                        'Net Salary': net_salary})
+
+
+    print('\n=================')
+    print(f"Data Of {name}")
+    print('=================\n')
+
+    for i in employee_data:
+
+        print(f'''
+Employee Name Is {i['Employee Name']}
+Basic Salary Is {i['Basic Salary']}
+Medical Alllowance Is {i['Medical Allowance']}
+Convence Allowance Is {i['Convence Allowance']}
+Gross Salary Is {i['Gross Salary']}
+Income Tax On Salary Is {i['Income Tax']} Which Is {i['Tax Value']}%
+Your Net Salary Is {i['Net Salary']}
+================================================
+================================================''')
+        
+# Main ===================================================================
+
+Net_Salary_Function('Tayyab', 50000)
+Net_Salary_Function('Ali', 2300000)
 
 
 # ----- RETURN STATEMENT
